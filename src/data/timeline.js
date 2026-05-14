@@ -1,0 +1,98 @@
+export const timeline = [
+  {
+    date: "1980-03-20",
+    title: "英国《Protection of Trading Interests Act 1980》",
+    tag: "United Kingdom",
+    relatedLawId: "uk-ptia-1980",
+  },
+  {
+    date: "1985-01-01",
+    title: "加拿大《Foreign Extraterritorial Measures Act》编纂为现行法",
+    tag: "Canada",
+    relatedLawId: "ca-fema",
+  },
+  {
+    date: "1996-11-22",
+    title: "欧盟阻断条例通过",
+    tag: "European Union",
+    relatedLawId: "eu-blocking-statute",
+  },
+  {
+    date: "2019-03-15",
+    title: "《外商投资法》通过",
+    tag: "China",
+    relatedLawId: "cn-foreign-investment-law-2019",
+  },
+  {
+    date: "2015-07-01",
+    title: "《国家安全法》施行",
+    tag: "China",
+    relatedLawId: "cn-national-security-law-2015",
+  },
+  {
+    date: "2017-06-01",
+    title: "《网络安全法》生效",
+    tag: "China",
+    relatedLawId: "cn-cybersecurity-law-2016",
+  },
+  {
+    date: "2020-09-19",
+    title: "《不可靠实体清单规定》公布施行",
+    tag: "China",
+    relatedLawId: "cn-unreliable-entity-list-2020",
+  },
+  {
+    date: "2020-12-01",
+    title: "《出口管制法》生效",
+    tag: "China",
+    relatedLawId: "cn-export-control-law-2020",
+  },
+  {
+    date: "2021-01-09",
+    title: "商务部阻断规则生效",
+    tag: "China",
+    relatedLawId: "cn-blocking-rules-2021",
+  },
+  {
+    date: "2021-09-01",
+    title: "《数据安全法》生效",
+    tag: "China",
+    relatedLawId: "cn-data-security-law-2021",
+  },
+  {
+    date: "2021-06-10",
+    title: "《反外国制裁法》公布施行",
+    tag: "China",
+    relatedLawId: "cn-afsl-2021",
+  },
+  {
+    date: "2023-07-01",
+    title: "《对外关系法》施行",
+    tag: "China",
+    relatedLawId: "cn-foreign-relations-law-2023",
+  },
+  {
+    date: "2025-03-24",
+    title: "《实施〈反外国制裁法〉的规定》公布施行",
+    tag: "China",
+    relatedLawId: "cn-afsl-implementation-2025",
+  },
+  {
+    date: "2026-03-01",
+    title: "《对外贸易法（2025年修订）》施行",
+    tag: "China",
+    relatedLawId: "cn-foreign-trade-law-2025",
+  },
+  {
+    date: "2026-04-07",
+    title: "《反外国不当域外管辖条例》公布施行",
+    tag: "China",
+    relatedLawId: "cn-extraterritorial-jurisdiction-2026",
+  },
+  {
+    date: "2026-01-01",
+    title: "《网络安全法》修正案施行",
+    tag: "China",
+    relatedLawId: "cn-cybersecurity-law-2016",
+  },
+];
