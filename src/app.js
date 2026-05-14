@@ -1,9 +1,9 @@
-import { laws } from "./data/laws.js?v=20260514";
-import { articles } from "./data/articles.js?v=20260514";
-import { topics } from "./data/topics.js?v=20260514";
-import { timeline } from "./data/timeline.js?v=20260514";
-import { buildCatalogIndex, filterCatalog, uniqueValues } from "./lib/catalog.js?v=20260514";
-import { validateArticleRecord, validateLawRecord } from "./lib/schema.js?v=20260514";
+import { laws } from "./data/laws.js?v=20260514b";
+import { articles } from "./data/articles.js?v=20260514b";
+import { topics } from "./data/topics.js?v=20260514b";
+import { timeline } from "./data/timeline.js?v=20260514b";
+import { buildCatalogIndex, filterCatalog, uniqueValues } from "./lib/catalog.js?v=20260514b";
+import { validateArticleRecord, validateLawRecord } from "./lib/schema.js?v=20260514b";
 import {
   collectLawArticles,
   collectTopicArticles,
@@ -12,7 +12,7 @@ import {
   groupLawResources,
   groupPracticeResources,
   summarizeCatalog,
-} from "./lib/render.js?v=20260514";
+} from "./lib/render.js?v=20260514b";
 
 laws.forEach(validateLawRecord);
 articles.forEach(validateArticleRecord);
