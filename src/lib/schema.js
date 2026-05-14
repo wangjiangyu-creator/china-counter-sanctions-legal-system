@@ -27,3 +27,69 @@ export function validateArticleRecord(record) {
     (fieldName) => requireField(record, fieldName),
   );
 }
+
+export function validateOfficialStatementRecord(record) {
+  [
+    "id",
+    "titleZh",
+    "titleEn",
+    "jurisdiction",
+    "institutionEn",
+    "speakerEn",
+    "venueEn",
+    "date",
+    "languages",
+    "sources",
+    "summary",
+    "relatedLawIds",
+  ].forEach((fieldName) => requireField(record, fieldName));
+}
+
+export function validateInternationalMaterialRecord(record) {
+  [
+    "id",
+    "titleZh",
+    "titleEn",
+    "jurisdiction",
+    "documentType",
+    "bodyEn",
+    "date",
+    "languages",
+    "sources",
+    "summary",
+    "texts",
+  ].forEach((fieldName) => requireField(record, fieldName));
+}
+
+export function validateInternationalResearchReportRecord(record) {
+  [
+    "id",
+    "titleZh",
+    "titleEn",
+    "jurisdiction",
+    "institutionEn",
+    "institutionType",
+    "documentType",
+    "date",
+    "languages",
+    "sources",
+    "summary",
+    "texts",
+  ].forEach((fieldName) => requireField(record, fieldName));
+}
+
+export function validateInternationalDecisionRecord(record) {
+  [
+    "id",
+    "titleZh",
+    "titleEn",
+    "jurisdiction",
+    "forumEn",
+    "decisionType",
+    "date",
+    "languages",
+    "sources",
+    "summary",
+    "texts",
+  ].forEach((fieldName) => requireField(record, fieldName));
+}

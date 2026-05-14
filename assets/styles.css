@@ -60,6 +60,7 @@ a {
 .filter-panel,
 .catalog,
 .topics,
+.official-positions-home,
 .timeline-section,
 .articles,
 .detail-section,
@@ -129,6 +130,12 @@ h3 {
   line-height: 1.7;
 }
 
+.hero-detail-en,
+.hero-summary-en,
+.hero-credit-en {
+  margin-top: 10px;
+}
+
 .hero-credit {
   margin-top: auto;
   padding-top: 18px;
@@ -183,6 +190,7 @@ h3 {
 .filter-panel,
 .catalog,
 .topics,
+.official-positions-home,
 .timeline-section,
 .articles,
 .detail-section {
@@ -252,7 +260,8 @@ select:focus {
 }
 
 .law-grid,
-.article-grid {
+.article-grid,
+.official-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
@@ -260,6 +269,7 @@ select:focus {
 
 .law-card,
 .article-card,
+.official-card,
 .topic-card {
   padding: 22px;
 }
@@ -324,6 +334,45 @@ select:focus {
   margin-top: 16px;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.official-view-switches,
+.anchor-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.official-view-switch {
+  border: 1px solid var(--line);
+  background: #fffdf8;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.official-view-switch.is-active {
+  background: var(--forest);
+  color: #fff;
+  border-color: var(--forest);
+}
+
+.official-archive-stack {
+  display: grid;
+  gap: 20px;
+}
+
+.official-group {
+  padding: 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.82);
+}
+
+.pill-count {
+  margin-left: 6px;
+  font-weight: 700;
 }
 
 .comparison-table {
@@ -392,6 +441,10 @@ select:focus {
 
 .detail-shell {
   padding-top: 24px;
+}
+
+.filter-grid-official {
+  grid-template-columns: 2fr 1fr 1fr 1fr;
 }
 
 .detail-grid {
@@ -509,6 +562,12 @@ select:focus {
   gap: 18px;
 }
 
+.official-card {
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
 .resource-group + .resource-group {
   margin-top: 18px;
 }
@@ -564,6 +623,7 @@ select:focus {
   .filter-grid,
   .law-grid,
   .article-grid,
+  .official-grid,
   .comparison-header,
   .comparison-row {
     grid-template-columns: 1fr;
