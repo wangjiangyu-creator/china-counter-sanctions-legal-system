@@ -61,6 +61,17 @@ test("article index includes recent law journal and law review sanctions scholar
   assert.equal(recentJournalItems.length >= 28, true);
 });
 
+test("article index includes newly requested Chinese scholars on sanctions and counter-sanctions", () => {
+  const requestedAuthors = ["廖诗评", "霍政欣", "杜涛", "杜焕芳", "蔡从燕"];
+  requestedAuthors.forEach((author) => {
+    assert.equal(
+      articles.some((record) => (record.authors ?? []).includes(author)),
+      true,
+      `${author} should be represented in the analysis index`,
+    );
+  });
+});
+
 test("fourth-round resources include both court cases and arbitration materials", () => {
   const tags = new Set(articles.flatMap((record) => record.sourceKinds));
   assert.equal(tags.has("case"), true);

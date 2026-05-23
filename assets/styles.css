@@ -157,6 +157,13 @@ h3 {
   font-weight: 600;
 }
 
+.article-authors {
+  margin: 10px 0 0;
+  color: var(--forest);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
 .hero-stats {
   display: grid;
   gap: 16px;

@@ -251,6 +251,7 @@ function renderArticleCard(article) {
     <article class="article-card">
       <p class="eyebrow">${escapeHtml(article.publisher)} · ${escapeHtml(String(article.year))}</p>
       <h3>${escapeHtml(article.title)}</h3>
+      <p class="article-authors">${escapeHtml((article.authors ?? []).join("、"))}</p>
       ${practiceMetadata ? `<p class="article-reference">${escapeHtml(practiceMetadata)}</p>` : ""}
       <p>${escapeHtml(article.abstract)}</p>
       <div class="pill-row">
