@@ -1,16 +1,16 @@
-import { laws } from "./data/laws.js?v=20260514p";
-import { articles } from "./data/articles.js?v=20260514p";
-import { internationalDecisions } from "./data/internationalDecisions.js?v=20260514p";
-import { internationalDecisionTopics } from "./data/internationalDecisionTopics.js?v=20260514p";
-import { internationalIssueTopics } from "./data/internationalIssueTopics.js?v=20260514p";
-import { internationalLawTopics } from "./data/internationalLawTopics.js?v=20260514p";
-import { internationalMaterials } from "./data/internationalMaterials.js?v=20260514p";
-import { internationalResearchReports } from "./data/internationalResearchReports.js?v=20260514p";
-import { officialStatements } from "./data/officialStatements.js?v=20260514p";
-import { officialPositionTopics } from "./data/officialPositionTopics.js?v=20260514p";
-import { topics } from "./data/topics.js?v=20260514p";
-import { timeline } from "./data/timeline.js?v=20260514p";
-import { buildCatalogIndex, filterCatalog, uniqueValues } from "./lib/catalog.js?v=20260514p";
+import { laws } from "./data/laws.js?v=20260514s";
+import { articles } from "./data/articles.js?v=20260514s";
+import { internationalDecisions } from "./data/internationalDecisions.js?v=20260514s";
+import { internationalDecisionTopics } from "./data/internationalDecisionTopics.js?v=20260514s";
+import { internationalIssueTopics } from "./data/internationalIssueTopics.js?v=20260514s";
+import { internationalLawTopics } from "./data/internationalLawTopics.js?v=20260514s";
+import { internationalMaterials } from "./data/internationalMaterials.js?v=20260514s";
+import { internationalResearchReports } from "./data/internationalResearchReports.js?v=20260514s";
+import { officialStatements } from "./data/officialStatements.js?v=20260514s";
+import { officialPositionTopics } from "./data/officialPositionTopics.js?v=20260514s";
+import { topics } from "./data/topics.js?v=20260514s";
+import { timeline } from "./data/timeline.js?v=20260514s";
+import { buildCatalogIndex, filterCatalog, uniqueValues } from "./lib/catalog.js?v=20260514s";
 import {
   validateArticleRecord,
   validateInternationalDecisionRecord,
@@ -18,7 +18,7 @@ import {
   validateInternationalResearchReportRecord,
   validateLawRecord,
   validateOfficialStatementRecord,
-} from "./lib/schema.js?v=20260514p";
+} from "./lib/schema.js?v=20260514s";
 import {
   collectLawArticles,
   collectTopicArticles,
@@ -30,7 +30,7 @@ import {
   groupOfficialStatementsByYear,
   groupPracticeResources,
   summarizeCatalog,
-} from "./lib/render.js?v=20260514p";
+} from "./lib/render.js?v=20260514s";
 
 laws.forEach(validateLawRecord);
 articles.forEach(validateArticleRecord);

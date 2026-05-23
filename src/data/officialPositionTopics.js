@@ -4,7 +4,7 @@ export const officialPositionTopics = [
     nameZh: "单边制裁与长臂管辖",
     nameEn: "Unilateral Sanctions and Long-Arm Jurisdiction",
     description:
-      "聚合中国官方对未经联合国抈权的单边制裁、次级制裁、长臂管辖和相关封锁措施的回应，包括外交部、商务部和驻联合国代表团的表述。",
+      "聚合中国官方对未经联合国授权的单边制裁、次级制裁、长臂管辖和相关封锁措施的回应，包括外交部、商务部和驻联合国代表团的表述。",
     matchTopics: ["单边强制措施", "单边制裁", "长臂管辖", "域外管辖", "封锁"],
     matchInstitutions: [],
   },

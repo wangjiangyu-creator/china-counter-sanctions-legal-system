@@ -4,7 +4,7 @@ export const internationalIssueTopics = [
     nameZh: "单边强制措施、人权与联合国体系",
     nameEn: "Unilateral coercive measures, human rights, and the UN system",
     description:
-      "把联合国大会、人权理事会、特别报告员、相关研究报告和裁判中围绕UCMs与人权影响的杀料聚合到同一入口。",
+      "把联合国大会、人权理事会、特别报告员、相关研究报告和裁判中围绕UCMs与人权影响的材料聚合到同一入口。",
     matchTopics: ["Unilateral Coercive Measures", "Human Rights", "General Assembly", "Human Rights Council", "Special Rapporteur"],
   },
   {
