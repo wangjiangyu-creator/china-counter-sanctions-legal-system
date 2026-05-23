@@ -261,6 +261,67 @@ function renderArticleCard(article) {
   `;
 }
 
+function isCaseAnalysisArticle(article) {
+  return (article.sourceKinds ?? []).some((kind) => kind === "case" || kind === "arbitration");
+}
+
+const chinaCaseGroups = [
+  {
+    title: "南京海事法院首起反外国制裁侵权诉讼案",
+    subtitle: "某海洋工程公司与S设备公司侵权责任纠纷案；（2024）苏72民初2157号",
+    description:
+      "围绕《反外国制裁法》第12条在中国法院的首次公开适用，集中展示法院材料、官方媒体报道和律师实务分析。",
+    articleIds: [
+      "cn-nanjing-maritime-2024-su72-2157",
+      "njmc-2026-first-afsl-top-ten-case",
+      "spc-ipc-2026-reform-afsl-case",
+      "legal-daily-2026-maritime-long-arm",
+      "xinde-2026-foreign-sanctions-tort-remedy",
+      "jinmao-2026-afsl-arbitration",
+    ],
+  },
+  {
+    title: "广州中院制裁条款买卖合同纠纷案",
+    subtitle: "青岛金海链国际贸易有限公司、广州发展碧辟油品有限公司买卖合同纠纷案；（2021）粤01民初1365号",
+    description:
+      "涉及合同制裁条款、《反外国制裁法》和阻断规则适用边界，是观察中国法院处理制裁条款抗辩的重要个案。",
+    articleIds: ["cn-guangzhou-2021-yue01-1365"],
+  },
+  {
+    title: "上海金融法院承认与执行外国仲裁裁决案",
+    subtitle: "（2021）沪74协外认1号；承认并执行 SIAC 裁决",
+    description:
+      "当事人以制裁和阻断规则提出执行抗辩，法院仍裁定承认与执行外国仲裁裁决，适合作为仲裁执行维度的中国案例。",
+    articleIds: ["cn-shanghai-financial-2021-hu74-xiewairen1"],
+  },
+  {
+    title: "上海海事法院外国制裁导致拒签提单案",
+    subtitle: "公开报道未披露案号；海事强制令程序",
+    description:
+      "外国承运人因外国制裁拒签提单，法院据报道作出海事强制令，是海事司法反制域外限制措施的实践材料。",
+    articleIds: ["cn-shanghai-maritime-bill-of-lading-sanctions"],
+  },
+];
+
+function renderCaseArticleGroup(group, records) {
+  return `
+    <article class="case-group">
+      <div class="case-group-head">
+        <div>
+          <p class="eyebrow">中国个案分析</p>
+          <h3>${escapeHtml(group.title)}</h3>
+          <p class="article-reference">${escapeHtml(group.subtitle)}</p>
+          <p>${escapeHtml(group.description)}</p>
+        </div>
+        <span class="pill pill-muted">${records.length} 篇材料</span>
+      </div>
+      <div class="article-grid">
+        ${records.map(renderArticleCard).join("")}
+      </div>
+    </article>
+  `;
+}
+
 function renderResourceGroup(title, description, resources) {
   return `
     <section class="resource-group">
@@ -2358,10 +2419,9 @@ function renderPortalCard({ eyebrow, title, description, href, count, links }) {
 function renderHomePortal() {
   const chinaLaws = indexedLaws.filter((law) => law.jurisdiction === "China");
   const foreignLaws = indexedLaws.filter((law) => law.jurisdiction !== "China");
-  const caseArticles = articles.filter((article) =>
-    (article.sourceKinds ?? []).some((kind) => kind === "case" || kind === "arbitration"),
-  );
-  const scholarArticles = articles.filter((article) => (article.sourceKinds ?? []).includes("scholar"));
+  const caseArticles = articles.filter(isCaseAnalysisArticle);
+  const analysisArticles = articles.filter((article) => !isCaseAnalysisArticle(article));
+  const scholarArticles = analysisArticles.filter((article) => (article.sourceKinds ?? []).includes("scholar"));
 
   const cards = [
     renderPortalCard({
@@ -2413,10 +2473,10 @@ function renderHomePortal() {
     renderPortalCard({
       eyebrow: "研究索引",
       title: "学术与政策分析",
-      description: "保存学者、律师、智库、法学期刊和政策机构关于制裁与单边强制措施的分析文章和报告链接。",
+      description: "保存学者、律师、智库、法学期刊和政策机构关于制裁与单边强制措施的非个案分析文章和报告链接。",
       href: "#/analysis",
-      count: `${articles.length + indexedInternationalResearchReports.length} 项`,
-      links: renderCompactLinks(scholarArticles.length ? scholarArticles : articles, (article) => article.sourceUrl, (article) => article.title, 4),
+      count: `${analysisArticles.length + indexedInternationalResearchReports.length} 项`,
+      links: renderCompactLinks(scholarArticles.length ? scholarArticles : analysisArticles, (article) => article.sourceUrl, (article) => article.title, 4),
     }),
     renderPortalCard({
       eyebrow: "制度对照",
@@ -2557,13 +2617,25 @@ function renderForeignLawList(state) {
 }
 
 function renderCaseList() {
-  const caseArticles = articles.filter((article) =>
-    (article.sourceKinds ?? []).some((kind) => kind === "case" || kind === "arbitration"),
+  const caseArticles = articles.filter(isCaseAnalysisArticle);
+  const groupedChinaCaseIds = new Set(chinaCaseGroups.flatMap((group) => group.articleIds));
+  const renderedChinaCaseGroups = chinaCaseGroups
+    .map((group) => ({
+      ...group,
+      records: group.articleIds.map((id) => caseArticles.find((article) => article.id === id)).filter(Boolean),
+    }))
+    .filter((group) => group.records.length);
+  const ungroupedChinaCaseArticles = caseArticles.filter(
+    (article) =>
+      !groupedChinaCaseIds.has(article.id) &&
+      (article.relatedLawIds ?? []).some((id) => indexedLaws.find((law) => law.id === id)?.jurisdiction === "China") &&
+      /[\u4e00-\u9fff]/.test(article.title + article.publisher + (article.forum ?? "")),
   );
-  const chinaCaseArticles = caseArticles.filter((article) =>
-    (article.relatedLawIds ?? []).some((id) => indexedLaws.find((law) => law.id === id)?.jurisdiction === "China"),
+  const chinaCaseArticleCount =
+    renderedChinaCaseGroups.reduce((total, group) => total + group.records.length, 0) + ungroupedChinaCaseArticles.length;
+  const comparativeCaseArticles = caseArticles.filter(
+    (article) => !groupedChinaCaseIds.has(article.id) && !ungroupedChinaCaseArticles.includes(article),
   );
-  const comparativeCaseArticles = caseArticles.filter((article) => !chinaCaseArticles.includes(article));
 
   return `
     <main class="shell">
@@ -2576,7 +2648,7 @@ function renderCaseList() {
           </div>
           <aside class="meta-panel">
             <dl>
-              <div><dt>中国实践材料</dt><dd>${chinaCaseArticles.length}</dd></div>
+              <div><dt>中国个案材料</dt><dd>${chinaCaseArticleCount}</dd></div>
               <div><dt>比较法实践材料</dt><dd>${comparativeCaseArticles.length}</dd></div>
               <div><dt>国际法判决裁决</dt><dd>${indexedInternationalDecisions.length}</dd></div>
             </dl>
@@ -2586,11 +2658,27 @@ function renderCaseList() {
 
       <section class="detail-section">
         <div class="section-head">
-          <h2>中国法院与仲裁实践</h2>
-          <p>包括当事人依据《反外国制裁法》等在中国法院起诉、执行和抗辩的案例线索及实务评论。</p>
+          <h2>中国案例</h2>
+          <p>所有关于单个中国案例的分析文章集中到本栏目；同一案件有多篇分析时，按案件合并展示。</p>
         </div>
-        <div class="article-grid">
-          ${chinaCaseArticles.length ? chinaCaseArticles.map(renderArticleCard).join("") : "<p>当前栏目暂无单独标记的中国案例材料。</p>"}
+        <div class="case-group-stack">
+          ${
+            renderedChinaCaseGroups.length
+              ? renderedChinaCaseGroups.map((group) => renderCaseArticleGroup(group, group.records)).join("")
+              : "<p>当前栏目暂无单独标记的中国案例材料。</p>"
+          }
+          ${
+            ungroupedChinaCaseArticles.length
+              ? renderCaseArticleGroup(
+                  {
+                    title: "其他中国案例材料",
+                    subtitle: "待后续补充案名和案号后可继续细分",
+                    description: "暂未归入固定案件组，但属于中国法院、仲裁或中国法相关的个案材料。",
+                  },
+                  ungroupedChinaCaseArticles,
+                )
+              : ""
+          }
         </div>
       </section>
 
@@ -2619,7 +2707,8 @@ function renderCaseList() {
 }
 
 function renderAnalysisList() {
-  const grouped = groupLawResources(articles);
+  const analysisArticles = articles.filter((article) => !isCaseAnalysisArticle(article));
+  const grouped = groupLawResources(analysisArticles);
 
   return `
     <main class="shell">
@@ -2632,7 +2721,7 @@ function renderAnalysisList() {
           </div>
           <aside class="meta-panel">
             <dl>
-              <div><dt>分析文章</dt><dd>${articles.length}</dd></div>
+              <div><dt>非个案分析文章</dt><dd>${analysisArticles.length}</dd></div>
               <div><dt>政策报告</dt><dd>${indexedInternationalResearchReports.length}</dd></div>
               <div><dt>学术文章</dt><dd>${grouped.scholar.length}</dd></div>
             </dl>
@@ -2642,7 +2731,6 @@ function renderAnalysisList() {
 
       ${renderResourceGroup("学者与法学期刊文章", "过去五年及重要基础文献中关于制裁、反制裁、域外管辖和单边强制措施的学术文章。", grouped.scholar)}
       ${renderResourceGroup("律师与实务评论", "律师事务所、专业机构和实务作者关于合规、诉讼、执行和风险管理的分析。", grouped.practitioner)}
-      ${renderResourceGroup("案例与实践提示", "与法院、仲裁、执行和争议解决直接相关的实务资料。", grouped.practice)}
 
       <section class="detail-section">
         <div class="section-head">

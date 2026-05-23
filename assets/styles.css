@@ -680,6 +680,31 @@ select:focus {
   box-shadow: var(--shadow);
 }
 
+.case-group-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.case-group {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 253, 248, 0.82);
+}
+
+.case-group-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.case-group-head p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .practice-track-stack {
   display: grid;
   gap: 16px;
@@ -736,6 +761,10 @@ select:focus {
   .comparison-header,
   .comparison-row {
     grid-template-columns: 1fr;
+  }
+
+  .case-group-head {
+    display: grid;
   }
 
   .bilingual-text {

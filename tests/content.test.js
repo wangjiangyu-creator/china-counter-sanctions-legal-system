@@ -363,6 +363,13 @@ test("app shell exposes redesigned top-level research sections", () => {
   ].forEach((fragment) => assert.equal(appSource.includes(fragment), true, `${fragment} should be present`));
 });
 
+test("case-specific China analysis is grouped under the cases page instead of the analysis index", () => {
+  const appSource = fs.readFileSync(new URL("../src/app.js", import.meta.url), "utf8");
+  assert.equal(appSource.includes("\u5357\u4eac\u6d77\u4e8b\u6cd5\u9662\u9996\u8d77\u53cd\u5916\u56fd\u5236\u88c1\u4fb5\u6743\u8bc9\u8bbc\u6848"), true);
+  assert.equal(appSource.includes("\u6240\u6709\u5173\u4e8e\u5355\u4e2a\u4e2d\u56fd\u6848\u4f8b\u7684\u5206\u6790\u6587\u7ae0\u96c6\u4e2d\u5230\u672c\u680f\u76ee"), true);
+  assert.equal(appSource.includes("\u975e\u4e2a\u6848\u5206\u6790\u6587\u7ae0"), true);
+});
+
 test("official positions fixed topics cover the intended long-term research buckets", () => {
   const topicIds = new Set(officialPositionTopics.map((topic) => topic.id));
   [
