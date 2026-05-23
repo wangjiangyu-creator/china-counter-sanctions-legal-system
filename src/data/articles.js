@@ -6,6 +6,7 @@ import { articlesPart5 } from "./articles.part5.js";
 import { articlesPart6 } from "./articles.part6.js";
 import { articlesPart7 } from "./articles.part7.js";
 import { articlesPart8 } from "./articles.part8.js";
+import { articlesPart9 } from "./articles.part9.js";
 
 export const articles = [
   ...articlesPart1,
@@ -16,4 +17,5 @@ export const articles = [
   ...articlesPart6,
   ...articlesPart7,
   ...articlesPart8,
+  ...articlesPart9,
 ];

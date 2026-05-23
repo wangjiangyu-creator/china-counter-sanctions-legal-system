@@ -72,6 +72,27 @@ test("article index includes newly requested Chinese scholars on sanctions and c
   });
 });
 
+test("article index includes sanctions theory and economic statecraft foundations", () => {
+  const articleIds = new Set(articles.map((record) => record.id));
+  [
+    "baldwin-1971-positive-sanctions",
+    "galtung-1967-effects-economic-sanctions",
+    "barber-1979-sanctions-policy-instrument",
+    "lindsay-1986-trade-sanctions-policy-instruments",
+    "pape-1997-why-sanctions-do-not-work",
+    "kirshner-1997-microfoundations-economic-sanctions",
+    "drezner-1998-conflict-expectations-economic-coercion",
+    "drezner-2003-hidden-hand-economic-coercion",
+    "farrell-newman-2019-weaponized-interdependence",
+    "hofer-2017-ucm-developed-developing-divide",
+    "tzanakopoulos-2019-targeted-sanctions-state-responsibility",
+    "douhan-2021-ucm-notion-qualification",
+  ].forEach((id) => assert.equal(articleIds.has(id), true, `${id} should be present`));
+
+  const theoryItems = articles.filter((record) => (record.sourceKinds ?? []).includes("theory"));
+  assert.equal(theoryItems.length >= 15, true);
+});
+
 test("fourth-round resources include both court cases and arbitration materials", () => {
   const tags = new Set(articles.flatMap((record) => record.sourceKinds));
   assert.equal(tags.has("case"), true);
