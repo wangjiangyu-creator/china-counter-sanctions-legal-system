@@ -344,6 +344,25 @@ test("home page and app shell include the official positions entry point", () =>
   assert.equal(appSource.includes("#/official-positions/themes/"), true);
 });
 
+test("app shell exposes redesigned top-level research sections", () => {
+  const appSource = fs.readFileSync(new URL("../src/app.js", import.meta.url), "utf8");
+  [
+    "#/china-laws",
+    "#/official-positions",
+    "#/foreign-laws",
+    "#/international-law",
+    "#/cases",
+    "#/analysis",
+    "#/topics",
+    "#/timeline",
+    "section-nav",
+    "\u4e2d\u56fd\u6cd5\u5f8b\u6cd5\u89c4",
+    "\u6848\u4f8b\u4e13\u9875",
+    "\u5b66\u672f\u4e0e\u653f\u7b56\u5206\u6790",
+    "\u5236\u5ea6\u65f6\u95f4\u7ebf",
+  ].forEach((fragment) => assert.equal(appSource.includes(fragment), true, `${fragment} should be present`));
+});
+
 test("official positions fixed topics cover the intended long-term research buckets", () => {
   const topicIds = new Set(officialPositionTopics.map((topic) => topic.id));
   [

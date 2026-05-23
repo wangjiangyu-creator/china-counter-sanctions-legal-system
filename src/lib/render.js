@@ -143,6 +143,7 @@ export function groupOfficialStatementsByTopic(records) {
 }
 
 export function getViewModel(route, state) {
+  const normalizedRoute = String(route || "#/");
   const lawMatch = String(route || "#/").match(/^#\/laws\/(.+)$/);
   const topicMatch = String(route || "#/").match(/^#\/topics\/(.+)$/);
   const internationalIssueMatch = String(route || "#/").match(/^#\/international-law\/issues\/(.+)$/);
@@ -153,6 +154,30 @@ export function getViewModel(route, state) {
   const internationalMatch = String(route || "#/").match(/^#\/international-law\/(.+)$/);
   const officialThemeMatch = String(route || "#/").match(/^#\/official-positions\/themes\/(.+)$/);
   const officialMatch = String(route || "#/").match(/^#\/official-positions\/(.+)$/);
+
+  if (normalizedRoute === "#/china-laws") {
+    return { type: "china-law-list" };
+  }
+
+  if (normalizedRoute === "#/foreign-laws") {
+    return { type: "foreign-law-list" };
+  }
+
+  if (normalizedRoute === "#/cases") {
+    return { type: "case-list" };
+  }
+
+  if (normalizedRoute === "#/analysis") {
+    return { type: "analysis-list" };
+  }
+
+  if (normalizedRoute === "#/topics") {
+    return { type: "topic-list" };
+  }
+
+  if (normalizedRoute === "#/timeline") {
+    return { type: "timeline-list" };
+  }
 
   if (lawMatch) {
     return {

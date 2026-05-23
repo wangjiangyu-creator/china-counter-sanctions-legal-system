@@ -98,6 +98,15 @@ test("getViewModel resolves an official statements list route", () => {
   assert.equal(view.type, "official-list");
 });
 
+test("getViewModel resolves main section list routes", () => {
+  assert.equal(getViewModel("#/china-laws", { laws, topics }).type, "china-law-list");
+  assert.equal(getViewModel("#/foreign-laws", { laws, topics }).type, "foreign-law-list");
+  assert.equal(getViewModel("#/cases", { laws, topics }).type, "case-list");
+  assert.equal(getViewModel("#/analysis", { laws, topics }).type, "analysis-list");
+  assert.equal(getViewModel("#/topics", { laws, topics }).type, "topic-list");
+  assert.equal(getViewModel("#/timeline", { laws, topics }).type, "timeline-list");
+});
+
 test("getViewModel resolves an official statement detail route", () => {
   const view = getViewModel("#/official-positions/stmt-1", { laws, topics, officialStatements });
   assert.equal(view.type, "official-detail");

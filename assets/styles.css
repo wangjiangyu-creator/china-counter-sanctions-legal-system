@@ -60,6 +60,7 @@ a {
 .filter-panel,
 .catalog,
 .topics,
+.portal-overview,
 .official-positions-home,
 .timeline-section,
 .articles,
@@ -190,6 +191,7 @@ h3 {
 .filter-panel,
 .catalog,
 .topics,
+.portal-overview,
 .official-positions-home,
 .timeline-section,
 .articles,
@@ -209,6 +211,50 @@ h3 {
 .site-credit p {
   margin: 0 0 12px;
   line-height: 1.7;
+}
+
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 24px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 250, 241, 0.76);
+  box-shadow: 0 10px 30px rgba(37, 23, 17, 0.08);
+  backdrop-filter: blur(6px);
+}
+
+.section-nav-link {
+  display: grid;
+  gap: 2px;
+  min-width: 122px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fffdf8;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.section-nav-link span {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.section-nav-link small {
+  font-size: 0.74rem;
+}
+
+.section-nav-link:hover,
+.section-nav-link.is-active {
+  border-color: rgba(139, 47, 27, 0.38);
+  background: rgba(139, 47, 27, 0.1);
+}
+
+.section-nav-link.is-active span {
+  color: var(--accent);
 }
 
 .section-head {
@@ -267,11 +313,64 @@ select:focus {
   gap: 18px;
 }
 
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
 .law-card,
 .article-card,
 .official-card,
-.topic-card {
+.topic-card,
+.portal-card {
   padding: 22px;
+}
+
+.portal-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.portal-card-count {
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(33, 69, 61, 0.1);
+  color: var(--forest);
+  font-weight: 800;
+}
+
+.portal-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.compact-link-list {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 18px;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.compact-link-list a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.compact-link-list a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.portal-card > .text-link {
+  margin-top: auto;
 }
 
 .law-card-top,
@@ -572,6 +671,15 @@ select:focus {
   margin-top: 18px;
 }
 
+.resource-group {
+  padding: 28px;
+  margin-top: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
 .practice-track-stack {
   display: grid;
   gap: 16px;
@@ -624,6 +732,7 @@ select:focus {
   .law-grid,
   .article-grid,
   .official-grid,
+  .portal-grid,
   .comparison-header,
   .comparison-row {
     grid-template-columns: 1fr;

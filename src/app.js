@@ -145,12 +145,61 @@ function collectOfficialThemeLaws(theme, records) {
     .filter(Boolean);
 }
 
+const sectionNavItems = [
+  { key: "home", href: "#/", label: "首页", labelEn: "Home" },
+  { key: "china-laws", href: "#/china-laws", label: "中国法律法规", labelEn: "China Laws" },
+  { key: "official-positions", href: "#/official-positions", label: "中国官方政策立场", labelEn: "Official Positions" },
+  { key: "foreign-laws", href: "#/foreign-laws", label: "外国法律法规", labelEn: "Foreign Laws" },
+  { key: "international-law", href: "#/international-law", label: "国际法资料", labelEn: "International Law" },
+  { key: "cases", href: "#/cases", label: "案例专页", labelEn: "Cases" },
+  { key: "analysis", href: "#/analysis", label: "学术与政策分析", labelEn: "Analysis" },
+  { key: "topics", href: "#/topics", label: "专题比较", labelEn: "Comparisons" },
+  { key: "timeline", href: "#/timeline", label: "制度时间线", labelEn: "Timeline" },
+];
+
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+function renderSectionNav(activeKey) {
+  return `
+    <nav class="section-nav" aria-label="主要栏目">
+      ${sectionNavItems
+        .map(
+          (item) => `
+            <a class="section-nav-link ${item.key === activeKey ? "is-active" : ""}" href="${item.href}">
+              <span>${escapeHtml(item.label)}</span>
+              <small>${escapeHtml(item.labelEn)}</small>
+            </a>`,
+        )
+        .join("")}
+    </nav>
+  `;
+}
+
+function getActiveSection(view, route) {
+  const normalizedRoute = String(route || "#/");
+
+  if (normalizedRoute === "#/") return "home";
+  if (view.type === "china-law-list") return "china-laws";
+  if (view.type === "foreign-law-list") return "foreign-laws";
+  if (view.type === "case-list" || normalizedRoute.startsWith("#/international-law/cases")) return "cases";
+  if (view.type === "analysis-list") return "analysis";
+  if (view.type === "topic-list" || view.type === "topic-detail") return "topics";
+  if (view.type === "timeline-list") return "timeline";
+  if (String(view.type || "").startsWith("official")) return "official-positions";
+  if (String(view.type || "").startsWith("international")) return "international-law";
+  if (view.type === "law-detail") return view.record?.jurisdiction === "China" ? "china-laws" : "foreign-laws";
+
+  return "home";
+}
+
+function withSectionNav(markup, activeKey) {
+  return String(markup).replace(/(<main class="[^"]*shell[^"]*">)/, `$1${renderSectionNav(activeKey)}`);
 }
 
 function renderSources(sources) {
@@ -2282,16 +2331,388 @@ function renderOfficialPreview() {
   `;
 }
 
-function renderHome(state) {
+function renderCompactLinks(records, getHref, getTitle, limit = 4) {
+  return `
+    <ul class="compact-link-list">
+      ${records
+        .slice(0, limit)
+        .map((record) => `<li><a href="${getHref(record)}">${escapeHtml(getTitle(record))}</a></li>`)
+        .join("")}
+    </ul>
+  `;
+}
+
+function renderPortalCard({ eyebrow, title, description, href, count, links }) {
+  return `
+    <article class="portal-card">
+      <p class="eyebrow">${escapeHtml(eyebrow)}</p>
+      <div class="portal-card-count">${escapeHtml(count)}</div>
+      <h3><a href="${href}">${escapeHtml(title)}</a></h3>
+      <p>${escapeHtml(description)}</p>
+      ${links}
+      <a class="text-link" href="${href}">进入完整栏目</a>
+    </article>
+  `;
+}
+
+function renderHomePortal() {
+  const chinaLaws = indexedLaws.filter((law) => law.jurisdiction === "China");
+  const foreignLaws = indexedLaws.filter((law) => law.jurisdiction !== "China");
+  const caseArticles = articles.filter((article) =>
+    (article.sourceKinds ?? []).some((kind) => kind === "case" || kind === "arbitration"),
+  );
+  const scholarArticles = articles.filter((article) => (article.sourceKinds ?? []).includes("scholar"));
+
+  const cards = [
+    renderPortalCard({
+      eyebrow: "核心文本",
+      title: "中国法律法规",
+      description: "集中收录中国反制裁、反域外不当措施、反长臂管辖、出口管制和相关经贸限制措施的法律法规，并优先做中英对照。",
+      href: "#/china-laws",
+      count: `${chinaLaws.length} 项`,
+      links: renderCompactLinks(chinaLaws, (law) => `#/laws/${law.id}`, (law) => law.titleZh, 4),
+    }),
+    renderPortalCard({
+      eyebrow: "政策档案",
+      title: "中国官方政策立场",
+      description: "按机构、年份、专题保存外交部、商务部、驻联合国代表团等关于制裁、反制裁和域外管辖问题的官方中英文本。",
+      href: "#/official-positions",
+      count: `${indexedOfficialStatements.length} 项`,
+      links: renderCompactLinks(indexedOfficialStatements, (record) => `#/official-positions/${record.id}`, (record) => record.titleZh, 4),
+    }),
+    renderPortalCard({
+      eyebrow: "比较法补充",
+      title: "外国法律法规",
+      description: "收录欧盟、英国、加拿大、美国等法域关于阻断法、制裁、出口管制和域外适用限制的主要文本。",
+      href: "#/foreign-laws",
+      count: `${foreignLaws.length} 项`,
+      links: renderCompactLinks(foreignLaws, (law) => `#/laws/${law.id}`, (law) => law.titleZh, 4),
+    }),
+    renderPortalCard({
+      eyebrow: "国际法资料",
+      title: "国际法资料",
+      description: "包括联合国宪章、联大和人权理事会决议、特别报告员研究、国家立场和国际组织资料。",
+      href: "#/international-law",
+      count: `${indexedInternationalMaterials.length} 项`,
+      links: `
+        <ul class="compact-link-list">
+          <li><a href="#/international-law/issues">固定问题导航</a></li>
+          <li><a href="#/international-law/research">研究报告分库</a></li>
+          <li><a href="#/international-law/cases">国际法判决分库</a></li>
+        </ul>
+      `,
+    }),
+    renderPortalCard({
+      eyebrow: "争议解决",
+      title: "案例专页",
+      description: "合并展示中国法院与仲裁实践提示、外国法院判例、国际法院和重要仲裁裁决。",
+      href: "#/cases",
+      count: `${caseArticles.length + indexedInternationalDecisions.length} 项`,
+      links: renderCompactLinks(indexedInternationalDecisions, (record) => `#/international-law/cases/${record.id}`, (record) => record.titleEn || record.titleZh, 4),
+    }),
+    renderPortalCard({
+      eyebrow: "研究索引",
+      title: "学术与政策分析",
+      description: "保存学者、律师、智库、法学期刊和政策机构关于制裁与单边强制措施的分析文章和报告链接。",
+      href: "#/analysis",
+      count: `${articles.length + indexedInternationalResearchReports.length} 项`,
+      links: renderCompactLinks(scholarArticles.length ? scholarArticles : articles, (article) => article.sourceUrl, (article) => article.title, 4),
+    }),
+    renderPortalCard({
+      eyebrow: "制度对照",
+      title: "专题比较",
+      description: "围绕阻断法、反制裁清单、域外管辖、出口管制、国际法合法性等问题组织横向比较。",
+      href: "#/topics",
+      count: `${topics.length + internationalIssueTopics.length} 组`,
+      links: renderCompactLinks(topics, (topic) => `#/topics/${topic.id}`, (topic) => topic.nameZh, 4),
+    }),
+    renderPortalCard({
+      eyebrow: "发展脉络",
+      title: "制度时间线",
+      description: "按时间展示中国制度演进及相关国际、比较法节点，便于追踪法律政策变化。",
+      href: "#/timeline",
+      count: `${timeline.length} 项`,
+      links: renderCompactLinks(timeline.slice().sort((a, b) => b.date.localeCompare(a.date)), () => "#/timeline", (item) => `${item.date} ${item.title}`, 4),
+    }),
+  ];
+
+  return `
+    <section class="portal-overview">
+      <div class="section-head">
+        <div>
+          <h2>栏目导航</h2>
+          <p>首页只展示每个栏目最重要的入口和代表性资料；完整内容进入二级页面检索。</p>
+        </div>
+      </div>
+      <div class="portal-grid">
+        ${cards.join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderLawListPage({ title, description, records, fixedJurisdiction, allowJurisdictionFilter, state }) {
+  const jurisdictions = uniqueValues(records, "jurisdiction");
   const filters = {
     query: state.query,
-    jurisdiction: state.jurisdiction,
+    jurisdiction: allowJurisdictionFilter ? state.jurisdiction : fixedJurisdiction,
     language: state.language,
     type: "law",
   };
-  const filteredLaws = filterCatalog(indexedLaws, filters);
+  const filteredLaws = filterCatalog(records, filters);
+  const summary = summarizeCatalog(records);
+
+  return `
+    <main class="shell">
+      <section class="detail-hero">
+        <div class="detail-grid">
+          <div>
+            <p class="eyebrow">法律文本二级页</p>
+            <h1>${escapeHtml(title)}</h1>
+            <p class="detail-summary">${escapeHtml(description)}</p>
+          </div>
+          <aside class="meta-panel">
+            <dl>
+              <div><dt>收录条目</dt><dd>${summary.totalRecords}</dd></div>
+              <div><dt>法域数量</dt><dd>${summary.jurisdictionCount}</dd></div>
+              <div><dt>中英双语</dt><dd>${summary.bilingualRecords}</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section class="filter-panel">
+        <div class="section-head">
+          <h2>本栏目检索</h2>
+          <p>可按关键词、法域和语种缩小范围。</p>
+        </div>
+        <div class="filter-grid">
+          <label>
+            <span>关键词</span>
+            <input id="query" type="search" placeholder="如：反外国制裁法 / blocking statute" value="${escapeHtml(state.query)}" />
+          </label>
+          ${
+            allowJurisdictionFilter
+              ? `<label>
+                  <span>法域</span>
+                  <select id="jurisdiction">
+                    <option value="">全部法域</option>
+                    ${jurisdictions
+                      .map(
+                        (jurisdiction) =>
+                          `<option value="${escapeHtml(jurisdiction)}" ${jurisdiction === state.jurisdiction ? "selected" : ""}>${escapeHtml(jurisdiction)}</option>`,
+                      )
+                      .join("")}
+                  </select>
+                </label>`
+              : `<label>
+                  <span>法域</span>
+                  <select disabled><option>${escapeHtml(fixedJurisdiction)}</option></select>
+                </label>`
+          }
+          <label>
+            <span>语种</span>
+            <select id="language">
+              <option value="">全部</option>
+              <option value="zh" ${state.language === "zh" ? "selected" : ""}>中文</option>
+              <option value="en" ${state.language === "en" ? "selected" : ""}>English</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="catalog">
+        <div class="section-head">
+          <h2>完整目录</h2>
+          <p>当前结果 ${filteredLaws.length} 条</p>
+        </div>
+        <div class="law-grid">
+          ${filteredLaws.map(renderLawCard).join("")}
+        </div>
+      </section>
+    </main>
+  `;
+}
+
+function renderChinaLawList(state) {
+  return renderLawListPage({
+    title: "中国法律法规",
+    description: "本页集中展示中国反制裁、反域外不当措施、反长臂管辖、出口管制和相关经贸限制措施的核心法律法规。中国法条目优先提供中文原文、英文官方文本或可靠英文译本，并明确来源属性。",
+    records: indexedLaws.filter((law) => law.jurisdiction === "China"),
+    fixedJurisdiction: "China",
+    allowJurisdictionFilter: false,
+    state,
+  });
+}
+
+function renderForeignLawList(state) {
+  return renderLawListPage({
+    title: "外国法律法规",
+    description: "本页作为比较法补充，展示欧盟、英国、加拿大、美国及其他法域关于阻断法、制裁、出口管制、域外适用限制和经贸限制措施的主要法律法规。",
+    records: indexedLaws.filter((law) => law.jurisdiction !== "China"),
+    fixedJurisdiction: "",
+    allowJurisdictionFilter: true,
+    state,
+  });
+}
+
+function renderCaseList() {
+  const caseArticles = articles.filter((article) =>
+    (article.sourceKinds ?? []).some((kind) => kind === "case" || kind === "arbitration"),
+  );
+  const chinaCaseArticles = caseArticles.filter((article) =>
+    (article.relatedLawIds ?? []).some((id) => indexedLaws.find((law) => law.id === id)?.jurisdiction === "China"),
+  );
+  const comparativeCaseArticles = caseArticles.filter((article) => !chinaCaseArticles.includes(article));
+
+  return `
+    <main class="shell">
+      <section class="detail-hero">
+        <div class="detail-grid">
+          <div>
+            <p class="eyebrow">案例与裁决</p>
+            <h1>案例专页</h1>
+            <p class="detail-summary">集中展示中国法院和仲裁实践、外国法院判例、国际法院判决与重要仲裁裁决，便于从实践角度检索制裁、反制裁、域外管辖和单边强制措施问题。</p>
+          </div>
+          <aside class="meta-panel">
+            <dl>
+              <div><dt>中国实践材料</dt><dd>${chinaCaseArticles.length}</dd></div>
+              <div><dt>比较法实践材料</dt><dd>${comparativeCaseArticles.length}</dd></div>
+              <div><dt>国际法判决裁决</dt><dd>${indexedInternationalDecisions.length}</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-head">
+          <h2>中国法院与仲裁实践</h2>
+          <p>包括当事人依据《反外国制裁法》等在中国法院起诉、执行和抗辩的案例线索及实务评论。</p>
+        </div>
+        <div class="article-grid">
+          ${chinaCaseArticles.length ? chinaCaseArticles.map(renderArticleCard).join("") : "<p>当前栏目暂无单独标记的中国案例材料。</p>"}
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-head">
+          <h2>外国法院与仲裁实践</h2>
+          <p>作为比较法补充，收录外国法院、仲裁机构和实务资料中与制裁及域外管辖有关的案例材料。</p>
+        </div>
+        <div class="article-grid">
+          ${comparativeCaseArticles.length ? comparativeCaseArticles.map(renderArticleCard).join("") : "<p>当前栏目暂无单独标记的外国案例材料。</p>"}
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-head">
+          <h2>国际法判决与裁决</h2>
+          <p>包括国际法院、英国和美国最高法院及重要仲裁裁决中涉及制裁、冻结资产、域外管辖和强制措施合法性的资料。</p>
+          <a class="text-link" href="#/international-law/cases">进入国际法判决分库</a>
+        </div>
+        <div class="official-grid">
+          ${indexedInternationalDecisions.map(renderInternationalDecisionCard).join("")}
+        </div>
+      </section>
+    </main>
+  `;
+}
+
+function renderAnalysisList() {
+  const grouped = groupLawResources(articles);
+
+  return `
+    <main class="shell">
+      <section class="detail-hero">
+        <div class="detail-grid">
+          <div>
+            <p class="eyebrow">研究与评论</p>
+            <h1>学术与政策分析</h1>
+            <p class="detail-summary">本页集中保存现有所有分析文章、律师实务评论、法学期刊文章、智库和政策研究报告。文章原则上提供摘要和原始链接，尊重原作者版权。</p>
+          </div>
+          <aside class="meta-panel">
+            <dl>
+              <div><dt>分析文章</dt><dd>${articles.length}</dd></div>
+              <div><dt>政策报告</dt><dd>${indexedInternationalResearchReports.length}</dd></div>
+              <div><dt>学术文章</dt><dd>${grouped.scholar.length}</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      ${renderResourceGroup("学者与法学期刊文章", "过去五年及重要基础文献中关于制裁、反制裁、域外管辖和单边强制措施的学术文章。", grouped.scholar)}
+      ${renderResourceGroup("律师与实务评论", "律师事务所、专业机构和实务作者关于合规、诉讼、执行和风险管理的分析。", grouped.practitioner)}
+      ${renderResourceGroup("案例与实践提示", "与法院、仲裁、执行和争议解决直接相关的实务资料。", grouped.practice)}
+
+      <section class="detail-section">
+        <div class="section-head">
+          <h2>国际组织、政府和智库报告</h2>
+          <p>来自国际组织、议会、政府研究机构和重要智库的政策研究报告。</p>
+          <a class="text-link" href="#/international-law/research">进入研究报告分库</a>
+        </div>
+        <div class="official-grid">
+          ${indexedInternationalResearchReports.map(renderInternationalResearchCard).join("")}
+        </div>
+      </section>
+    </main>
+  `;
+}
+
+function renderTopicList() {
+  return `
+    <main class="shell">
+      <section class="detail-hero">
+        <p class="eyebrow">横向制度对照</p>
+        <h1>专题比较</h1>
+        <p class="detail-summary">本页保留所有专题比较和国际法固定问题导航，便于按制度问题而不是按资料类型进入资料库。</p>
+      </section>
+
+      <section class="topics">
+        <div class="section-head">
+          <h2>中国法与比较法专题</h2>
+          <p>围绕阻断法、反制裁清单、反域外管辖、出口管制等主题组织材料。</p>
+        </div>
+        <div class="topic-stack">
+          ${topics.map(renderTopicCard).join("")}
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-head">
+          <h2>国际法固定问题导航</h2>
+          <p>围绕单边强制措施、域外管辖、安理会制裁和国家表态等问题建立专题入口。</p>
+          <a class="text-link" href="#/international-law/issues">进入国际法问题导航</a>
+        </div>
+        <div class="official-grid">
+          ${internationalIssueTopics.map(renderInternationalIssueTopicCard).join("")}
+        </div>
+      </section>
+    </main>
+  `;
+}
+
+function renderTimelineList() {
+  return `
+    <main class="shell">
+      <section class="detail-hero">
+        <p class="eyebrow">制度演进</p>
+        <h1>制度时间线</h1>
+        <p class="detail-summary">按时间展示中国反制裁和反域外管辖制度的发展节点，并纳入关键国际法和比较法背景。</p>
+      </section>
+
+      <section class="timeline-section">
+        <div class="section-head">
+          <h2>完整时间线</h2>
+          <p>用于快速定位制度演进、政策发布和重要法律节点。</p>
+        </div>
+        ${renderTimeline()}
+      </section>
+    </main>
+  `;
+}
+
+function renderHome(state) {
   const summary = summarizeCatalog(indexedLaws);
-  const jurisdictions = uniqueValues(indexedLaws, "jurisdiction");
 
   return `
     <main class="shell">
@@ -2338,80 +2759,7 @@ function renderHome(state) {
         </div>
       </section>
 
-      <section class="filter-panel">
-        <div class="section-head">
-          <h2>法律检索</h2>
-          <p>按名称、法域和语种筛选首批收录内容。</p>
-        </div>
-        <div class="filter-grid">
-          <label>
-            <span>关键词</span>
-            <input id="query" type="search" placeholder="如：反外国制裁法 / blocking statute" value="${escapeHtml(state.query)}" />
-          </label>
-          <label>
-            <span>法域</span>
-            <select id="jurisdiction">
-              <option value="">全部法域</option>
-              ${jurisdictions
-                .map(
-                  (jurisdiction) =>
-                    `<option value="${escapeHtml(jurisdiction)}" ${jurisdiction === state.jurisdiction ? "selected" : ""}>${escapeHtml(jurisdiction)}</option>`,
-                )
-                .join("")}
-            </select>
-          </label>
-          <label>
-            <span>语种</span>
-            <select id="language">
-              <option value="">全部</option>
-              <option value="zh" ${state.language === "zh" ? "selected" : ""}>中文</option>
-              <option value="en" ${state.language === "en" ? "selected" : ""}>English</option>
-            </select>
-          </label>
-        </div>
-      </section>
-
-      <section class="catalog">
-        <div class="section-head">
-          <h2>法律文本目录</h2>
-          <p>当前结果 ${filteredLaws.length} 条</p>
-        </div>
-        <div class="law-grid">
-          ${filteredLaws.map(renderLawCard).join("")}
-        </div>
-      </section>
-
-      ${renderOfficialPreview()}
-
-      ${renderInternationalPreview()}
-
-      <section class="topics">
-        <div class="section-head">
-          <h2>专题比较</h2>
-          <p>围绕阻断法、反制裁清单和反域外管辖三条主线组织内容。</p>
-        </div>
-        <div class="topic-stack">
-          ${topics.map(renderTopicCard).join("")}
-        </div>
-      </section>
-
-      <section class="timeline-section">
-        <div class="section-head">
-          <h2>制度时间线</h2>
-          <p>把中国制度发展放入更长的比较法坐标中看。</p>
-        </div>
-        ${renderTimeline()}
-      </section>
-
-      <section class="articles">
-        <div class="section-head">
-          <h2>分析文章索引</h2>
-          <p>默认以摘要和原链接为主，避免超出版权边界。</p>
-        </div>
-        <div class="article-grid">
-          ${articles.map(renderArticleCard).join("")}
-        </div>
-      </section>
+      ${renderHomePortal()}
     </main>
   `;
 }
@@ -2485,8 +2833,14 @@ export function createApp(root) {
       officialPositionTopics,
     });
 
-    root.innerHTML = (() => {
+    const pageMarkup = (() => {
       if (view.type === "law-detail") return renderLawDetail(view.record, state.detailLanguage);
+      if (view.type === "china-law-list") return renderChinaLawList(state);
+      if (view.type === "foreign-law-list") return renderForeignLawList(state);
+      if (view.type === "case-list") return renderCaseList();
+      if (view.type === "analysis-list") return renderAnalysisList();
+      if (view.type === "topic-list") return renderTopicList();
+      if (view.type === "timeline-list") return renderTimelineList();
       if (view.type === "topic-detail") return renderTopicDetail(view.topic);
       if (view.type === "international-list") return renderInternationalList(state);
       if (view.type === "international-issue-list") return renderInternationalIssueList();
@@ -2503,6 +2857,8 @@ export function createApp(root) {
       if (view.type === "official-detail") return renderOfficialDetail(view.record);
       return renderHome(state);
     })();
+
+    root.innerHTML = withSectionNav(pageMarkup, getActiveSection(view, route));
 
     bindEvents();
   }
