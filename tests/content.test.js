@@ -46,6 +46,11 @@ test("article index includes recent law journal and law review sanctions scholar
     "liu-guiqiang-2022-blocking-statutes-value",
     "huo-2026-three-anti-system",
     "yalejil-2024-twail-economic-sanctions",
+    "hemler-2025-deconstructing-blocking-statutes",
+    "hofer-2025-third-party-countermeasures",
+    "franchini-2025-central-bank-sanctions",
+    "bakos-2025-eu-blocking-statute-investment-arbitration",
+    "du-hu-2025-central-bank-property-immunity",
   ].forEach((id) => assert.equal(articleIds.has(id), true, `${id} should be present`));
 
   const recentJournalItems = articles.filter(
@@ -53,7 +58,7 @@ test("article index includes recent law journal and law review sanctions scholar
       record.year >= 2021 &&
       (record.sourceKinds ?? []).some((kind) => ["law-journal", "law-review"].includes(kind)),
   );
-  assert.equal(recentJournalItems.length >= 20, true);
+  assert.equal(recentJournalItems.length >= 28, true);
 });
 
 test("fourth-round resources include both court cases and arbitration materials", () => {
@@ -92,6 +97,9 @@ test("china coverage includes the core counter-sanctions and anti-extraterritori
     "cn-foreign-state-immunity-law-2023",
     "cn-supply-chain-security-regulation-2026",
     "cn-mofcom-blocking-order-2026-21",
+    "cn-pipl-2021",
+    "cn-international-criminal-judicial-assistance-law-2018",
+    "cn-spc-foreign-related-civil-commercial-jurisdiction-2022",
   ];
 
   requiredIds.forEach((id) => assert.equal(chinaIds.has(id), true, `${id} should be present`));
@@ -118,6 +126,7 @@ test("every China law record keeps at least one official Chinese government sour
     "moj.gov.cn",
     "xzfg.moj.gov.cn",
     "cac.gov.cn",
+    "court.gov.cn",
   ];
 
   laws
@@ -250,6 +259,8 @@ test("site includes a substantial set of Chinese scholar and lawyer commentary o
     "jinmao-2026-afsl-arbitration",
     "xinde-2026-foreign-sanctions-tort-remedy",
     "debevoise-2026-china-blocking-supply-chain",
+    "mondaq-2023-cross-border-ediscovery",
+    "ropesgray-2019-icjal-blocking",
   ].forEach((id) => {
     assert.equal(articleIds.has(id), true, `${id} should be included`);
   });
