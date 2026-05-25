@@ -580,12 +580,16 @@ test("app shell includes the international research reports branch", () => {
 });
 
 test("international law archive includes a decisions-and-awards branch covering ICJ, supreme courts, and arbitral awards", () => {
-  assert.equal(internationalDecisions.length >= 15, true);
+  assert.equal(internationalDecisions.length >= 22, true);
 
   const decisionIds = new Set(internationalDecisions.map((record) => record.id));
   [
     "icj-alleged-violations-order-2018",
     "icj-certain-iranian-assets-2023",
+    "cjeu-kadi-ii-2013",
+    "cjeu-rosneft-2017",
+    "cjeu-bank-refah-kargaran-2020",
+    "cjeu-venezuela-council-2021",
     "uksc-bank-mellat-no2-2013",
     "uksc-rti-mur-shipping-2024",
     "ussc-bank-markazi-peterson-2016",
@@ -593,6 +597,9 @@ test("international law archive includes a decisions-and-awards branch covering 
     "ussc-halkbank-v-united-states-2023",
     "iusct-a24-final-award-602-2014",
     "iusct-a15-partial-award-604-2020",
+    "echr-bosphorus-ireland-2005",
+    "echr-nada-switzerland-2012",
+    "echr-al-dulimi-switzerland-2016",
     "cjeu-neves-77-solutions-2024",
     "gc-national-settlement-depository-2024",
     "gc-aven-fridman-council-2024",
@@ -608,6 +615,7 @@ test("international decisions use official judicial or tribunal sources and keep
     "iusct.com",
     "curia.europa.eu",
     "infocuria.europa.eu",
+    "hudoc.echr.coe.int",
   ];
 
   internationalDecisions.forEach((record) => {

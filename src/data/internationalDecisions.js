@@ -583,4 +583,295 @@ export const internationalDecisions = [
       },
     },
   },
+  {
+    id: "cjeu-kadi-ii-2013",
+    type: "international-decision",
+    titleZh: "欧盟法院：欧盟委员会、欧盟理事会和英国诉 Kadi 案",
+    titleEn: "CJEU: European Commission, Council of the European Union and United Kingdom v Yassin Abdullah Kadi",
+    shortTitle: "Joined Cases C-584/10 P, C-593/10 P and C-595/10 P",
+    jurisdiction: "European Union",
+    forumZh: "欧盟法院",
+    forumEn: "Court of Justice of the European Union",
+    decisionType: "CJEU Judgment",
+    date: "2013-07-18",
+    status: "Official judicial source",
+    languages: ["en"],
+    topics: ["UN Sanctions", "Due Process", "Judicial Review", "Evidence", "Asset Freezes"],
+    summary:
+      "Kadi II 是欧盟法院关于联合国定向制裁、证据披露和有效司法保护的里程碑判决，明确欧盟机关不能在缺乏足以支撑列名的证据时维持冻结措施。",
+    relatedLawIds: ["cn-afsl-2021", "cn-foreign-relations-law-2023"],
+    sources: [
+      { label: "Curia press release", url: "https://curia.europa.eu/jcms/upload/docs/application/pdf/2013-07/cp130093en.pdf" },
+      {
+        label: "Curia judgment page",
+        url: "https://infocuria.curia.europa.eu/tabs/redirect/juris/document/document.jsf?cid=46136&dir=&docid=149621&doclang=EN&mode=lst&occ=first&pageIndex=0&part=1&text=",
+      },
+    ],
+    texts: {
+      en: {
+        note: "Official Curia materials.",
+        sections: [
+          {
+            heading: "Main holding",
+            body:
+              "The Court dismissed the appeals against the General Court's annulment of the post-2008 relisting measure, holding that EU institutions must be able to substantiate restrictive measures with sufficiently specific evidence and must respect effective judicial protection.",
+          },
+          {
+            heading: "Why it matters",
+            body:
+              "Kadi II is central to sanctions-law doctrine because it translates abstract rights review into an evidence-sensitive standard for UN-implemented asset freezes, shaping later EU litigation over listings, reasons, and remedies.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "cjeu-rosneft-2017",
+    type: "international-decision",
+    titleZh: "欧盟法院：Rosneft 诉英国财政部等案",
+    titleEn: "CJEU: PJSC Rosneft Oil Company v Her Majesty's Treasury and Others",
+    shortTitle: "Case C-72/15",
+    jurisdiction: "European Union",
+    forumZh: "欧盟法院",
+    forumEn: "Court of Justice of the European Union",
+    decisionType: "CJEU Judgment",
+    date: "2017-03-28",
+    status: "Official judicial source",
+    languages: ["en"],
+    topics: ["Russia Sanctions", "Judicial Review", "Legal Certainty", "Energy Sector"],
+    summary:
+      "Rosneft 是欧盟俄罗斯制裁司法审查的基础判决，处理了法院对共同外交与安全政策限制性措施的审查权限、制裁合法性以及术语确定性问题。",
+    relatedLawIds: ["eu-russia-reg-833-2014", "cn-foreign-relations-law-2023", "cn-extraterritorial-jurisdiction-2026"],
+    sources: [
+      { label: "Curia press release", url: "https://curia.europa.eu/jcms/upload/docs/application/pdf/2017-03/cp170034en.pdf" },
+      {
+        label: "Curia judgment page",
+        url: "https://infocuria.curia.europa.eu/tabs/redirect/juris/document/document.jsf?docid=205646&doclang=EN&text=",
+      },
+    ],
+    texts: {
+      en: {
+        note: "Official Curia materials.",
+        sections: [
+          {
+            heading: "Main holding",
+            body:
+              "The Court confirmed its jurisdiction to review the validity of relevant CFSP restrictive measures and upheld the Russia sanctions framework against challenges based on legal certainty, proportionality, and treaty compatibility.",
+          },
+          {
+            heading: "Why it matters",
+            body:
+              "Rosneft is a foundational autonomous-sanctions judgment because it shows how a supranational court reviews sectoral sanctions aimed at a major energy company while still giving weight to foreign-policy and security objectives.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "cjeu-bank-refah-kargaran-2020",
+    type: "international-decision",
+    titleZh: "欧盟法院：Bank Refah Kargaran 诉理事会案",
+    titleEn: "CJEU: Bank Refah Kargaran v Council of the European Union and European Commission",
+    shortTitle: "Case C-134/19 P",
+    jurisdiction: "European Union",
+    forumZh: "欧盟法院",
+    forumEn: "Court of Justice of the European Union",
+    decisionType: "CJEU Judgment",
+    date: "2020-10-06",
+    status: "Official judicial source",
+    languages: ["en"],
+    topics: ["Sanctions", "Due Process", "Judicial Review", "Damages", "Iran"],
+    summary:
+      "Bank Refah Kargaran 聚焦欧盟法院是否有权审理共同外交与安全政策制裁措施引发的损害赔偿请求，是限制性措施司法救济体系中的关键判决。",
+    relatedLawIds: ["cn-afsl-2021", "cn-blocking-rules-2021", "cn-foreign-relations-law-2023"],
+    sources: [
+      { label: "Curia press release", url: "https://curia.europa.eu/jcms/upload/docs/application/pdf/2020-10/cp200124en.pdf" },
+      {
+        label: "Curia case page",
+        url: "https://infocuria.curia.europa.eu/tabs/redirect/juris/liste.jsf?language=en&num=C-134%2F19+P&td=ALL",
+      },
+    ],
+    texts: {
+      en: {
+        note: "Official Curia materials.",
+        sections: [
+          {
+            heading: "Main holding",
+            body:
+              "The Court held that it has jurisdiction to hear damages actions for harm allegedly caused by restrictive measures adopted under the CFSP, even though the appellant ultimately did not obtain compensation on the facts.",
+          },
+          {
+            heading: "Why it matters",
+            body:
+              "The case is important because it turns sanctions review from a pure annulment question into a remedial one, clarifying when individuals and entities can seek monetary redress for unlawful listings and frozen-funds measures.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "cjeu-venezuela-council-2021",
+    type: "international-decision",
+    titleZh: "欧盟法院：委内瑞拉诉欧盟理事会案",
+    titleEn: "CJEU: Bolivarian Republic of Venezuela v Council of the European Union",
+    shortTitle: "Case C-872/19 P",
+    jurisdiction: "European Union",
+    forumZh: "欧盟法院",
+    forumEn: "Court of Justice of the European Union",
+    decisionType: "CJEU Judgment",
+    date: "2021-06-22",
+    status: "Official judicial source",
+    languages: ["en"],
+    topics: ["Venezuela Sanctions", "Judicial Review", "Standing", "Restrictive Measures"],
+    summary:
+      "委内瑞拉案确认第三国可以对直接影响其法律地位的欧盟限制性措施提起撤销诉讼，扩展了国家作为制裁对象在欧盟法院寻求司法审查的路径。",
+    relatedLawIds: ["cn-afsl-2021", "cn-foreign-relations-law-2023"],
+    sources: [
+      { label: "Curia press release", url: "https://curia.europa.eu/site/upload/docs/application/pdf/2021-06/cp210112en.pdf" },
+      {
+        label: "Curia case page",
+        url: "https://infocuria.curia.europa.eu/tabs/redirect/juris/liste.jsf?jur=C&language=en&lgrec=fr&num=C-872%2F19+P&td=%3BALL",
+      },
+    ],
+    texts: {
+      en: {
+        note: "Official Curia materials.",
+        sections: [
+          {
+            heading: "Main holding",
+            body:
+              "The Court ruled that Venezuela had standing to challenge an EU regulation imposing restrictive measures against it because the regulation directly affected its legal position and constituted a regulatory act without implementing measures.",
+          },
+          {
+            heading: "Why it matters",
+            body:
+              "The judgment matters because it confirms that sanctions litigation is not limited to listed individuals and firms: a targeted third state can also enter the courtroom and contest the admissibility and structure of autonomous sanctions.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "echr-bosphorus-ireland-2005",
+    type: "international-decision",
+    titleZh: "欧洲人权法院：Bosphorus 航空公司诉爱尔兰案",
+    titleEn: "ECtHR: Bosphorus Hava Yolları Turizm ve Ticaret Anonim Şirketi v Ireland",
+    shortTitle: "Application no. 45036/98",
+    jurisdiction: "European Court of Human Rights",
+    forumZh: "欧洲人权法院",
+    forumEn: "European Court of Human Rights",
+    decisionType: "ECtHR Grand Chamber Judgment",
+    date: "2005-06-30",
+    status: "Official judicial source",
+    languages: ["en"],
+    topics: ["UN Sanctions", "Property Rights", "Judicial Review", "European Union"],
+    summary:
+      "Bosphorus 案处理爱尔兰执行南联盟制裁时扣押飞机所引发的财产权争议，并提出了欧洲人权法院审查欧盟法义务实施措施时的“等效保护”原则。",
+    relatedLawIds: ["cn-afsl-2021", "cn-foreign-relations-law-2023"],
+    sources: [
+      { label: "HUDOC judgment page", url: "https://hudoc.echr.coe.int/eng?i=001-69564" },
+      { label: "ECHR press summary", url: "https://hudoc.echr.coe.int/eng-press?i=003-1375632-1436174" },
+    ],
+    texts: {
+      en: {
+        note: "Official European Court of Human Rights materials.",
+        sections: [
+          {
+            heading: "Main holding",
+            body:
+              "The Grand Chamber found no violation of property rights, holding that Ireland had merely complied with binding obligations under EC law implementing the UN sanctions regime and that the Convention protection available within the EU system was in principle equivalent.",
+          },
+          {
+            heading: "Why it matters",
+            body:
+              "Bosphorus remains central to sanctions and human-rights research because it explains how rights review interacts with layered sanctions regimes when a state implements supranational obligations rather than acting autonomously.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "echr-nada-switzerland-2012",
+    type: "international-decision",
+    titleZh: "欧洲人权法院：Nada 诉瑞士案",
+    titleEn: "ECtHR: Nada v Switzerland",
+    shortTitle: "Application no. 10593/08",
+    jurisdiction: "European Court of Human Rights",
+    forumZh: "欧洲人权法院",
+    forumEn: "European Court of Human Rights",
+    decisionType: "ECtHR Grand Chamber Judgment",
+    date: "2012-09-12",
+    status: "Official judicial source",
+    languages: ["en"],
+    topics: ["UN Sanctions", "Human Rights", "Judicial Review", "Private and Family Life", "Freedom of Movement"],
+    summary:
+      "Nada 案围绕瑞士执行联合国基地组织制裁名单所造成的入境和过境限制，强调成员国在履行安理会制裁义务时仍需尽量减少对基本权利的不成比例干预。",
+    relatedLawIds: ["cn-afsl-2021", "cn-foreign-relations-law-2023"],
+    sources: [
+      { label: "HUDOC judgment page", url: "https://hudoc.echr.coe.int/eng?i=001-113118" },
+      {
+        label: "ECHR press summary",
+        url: "https://hudoc.echr.coe.int/app/conversion/pdf/?filename=Grand+Chamber+judgment+Nada+v.+Switzerland+12.09.2012.pdf&id=003-4074237-4770956&library=ECHR",
+      },
+    ],
+    texts: {
+      en: {
+        note: "Official European Court of Human Rights materials.",
+        sections: [
+          {
+            heading: "Main holding",
+            body:
+              "The Grand Chamber found that Switzerland violated Article 8 because it had not sufficiently accommodated the applicant's circumstances when implementing the UN travel ban and had failed to pursue available flexibility and exemptions effectively.",
+          },
+          {
+            heading: "Why it matters",
+            body:
+              "Nada is widely cited because it shows that even in a UN sanctions setting, domestic implementation choices remain subject to proportionality and human-rights review rather than being immunized by the mere existence of Security Council obligations.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "echr-al-dulimi-switzerland-2016",
+    type: "international-decision",
+    titleZh: "欧洲人权法院：Al-Dulimi 与 Montana Management 诉瑞士案",
+    titleEn: "ECtHR: Al-Dulimi and Montana Management Inc. v Switzerland",
+    shortTitle: "Application no. 5809/08",
+    jurisdiction: "European Court of Human Rights",
+    forumZh: "欧洲人权法院",
+    forumEn: "European Court of Human Rights",
+    decisionType: "ECtHR Grand Chamber Judgment",
+    date: "2016-06-21",
+    status: "Official judicial source",
+    languages: ["en"],
+    topics: ["UN Sanctions", "Due Process", "Access to Court", "Asset Freezes", "Human Rights"],
+    summary:
+      "Al-Dulimi 案处理瑞士依据联合国制裁决议冻结和没收与前伊拉克政权相关资产的程序保障问题，确认国内法院至少应审查列名是否具有足够的任意性控制。",
+    relatedLawIds: ["cn-afsl-2021", "cn-foreign-relations-law-2023", "cn-foreign-state-immunity-law-2023"],
+    sources: [
+      { label: "HUDOC judgment page", url: "https://hudoc.echr.coe.int/eng?i=001-164515" },
+      {
+        label: "HUDOC judgment PDF",
+        url: "https://hudoc.echr.coe.int/app/conversion/docx/pdf?filename=CASE+OF+AL-DULIMI+AND+MONTANA+MANAGEMENT+INC.+v.+SWITZERLAND.pdf&id=001-164515&library=ECHR",
+      },
+    ],
+    texts: {
+      en: {
+        note: "Official European Court of Human Rights materials.",
+        sections: [
+          {
+            heading: "Main holding",
+            body:
+              "The Grand Chamber held that Switzerland violated Article 6 because its courts had declined to conduct any meaningful review of whether the applicants' listing under the UN sanctions regime had an arbitrary basis.",
+          },
+          {
+            heading: "Why it matters",
+            body:
+              "The decision is a major rule-of-law checkpoint in global sanctions litigation, because it requires at least some domestic judicial scrutiny even where states are implementing mandatory Security Council asset-freeze obligations.",
+          },
+        ],
+      },
+    },
+  },
 ];
