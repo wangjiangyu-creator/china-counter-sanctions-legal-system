@@ -1,5 +1,5 @@
 const root = document.querySelector("#app");
-const appUrl = new URL("./app.js?v=20260523d", import.meta.url);
+const appUrl = new URL("./app.js?v=20260525a", import.meta.url);
 
 const response = await fetch(appUrl, { cache: "no-store" });
 
@@ -15,6 +15,7 @@ source = source.replaceAll("20260514s", "20260523d");
 source = source.replaceAll("20260523a", "20260523d");
 source = source.replaceAll("20260523b", "20260523d");
 source = source.replaceAll("20260523c", "20260523d");
+source = source.replaceAll("20260523d", "20260525a");
 source = source.replace(
   /from\s+["'](\.\/[^"']+)["']/g,
   (_, specifier) => `from "${new URL(specifier, appUrl).href}"`,

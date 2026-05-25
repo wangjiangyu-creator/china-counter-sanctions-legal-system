@@ -675,21 +675,6 @@ export const articlesPart10 = [
     sourceUrl: "https://academic.oup.com/jiel/article/28/3/542/8304487",
   },
   {
-    id: "abel-bormann-2025-countering-extraterritorial-sanctions",
-    title: "Countering Extraterritorial Sanctions",
-    authors: ["Patrick Abel", "Carsten Bormann"],
-    publisher: "Journal of International Trade Law and Policy",
-    year: 2025,
-    language: "en",
-    sourceKinds: ["scholar", "law-journal", "extraterritoriality", "blocking-statutes"],
-    jurisdictions: ["European Union", "United States", "International"],
-    relatedLawIds: ["cn-blocking-rules-2021", "eu-blocking-statute", "us-ieepa-1977"],
-    abstract:
-      "文章比较阻断法与反措施作为反制域外制裁的两种路径，说明二者在国际法上均属于没有强制全球争端解决机制时的次优选择。",
-    accessMode: "summary",
-    sourceUrl: "https://www.sciencedirect.com/org/science/article/pii/S147700242500004X",
-  },
-  {
     id: "zeng-2026-tools-weak-sanctions-threat-perception",
     title: "Tools of the Weak? Economic Sanctions, Threat Perception, and Conflict Escalation",
     authors: ["Yuleng Zeng"],

@@ -93,6 +93,32 @@ test("article index includes sanctions theory and economic statecraft foundation
   assert.equal(theoryItems.length >= 15, true);
 });
 
+test("article index includes expanded sanctions datasets, UN practice, and China economic coercion literature", () => {
+  const articleIds = new Set(articles.map((record) => record.id));
+  [
+    "early-2009-sanctions-busting-trade",
+    "felbermayr-2020-global-sanctions-data-base",
+    "biersteker-eckert-tourinho-2016-targeted-sanctions",
+    "biersteker-eckert-tourinho-hudakova-2018-un-targeted-sanctions-datasets",
+    "van-den-herik-2017-research-handbook-un-sanctions",
+    "gowlland-debbas-2001-un-sanctions-international-law",
+    "haass-1998-economic-sanctions-american-diplomacy",
+    "gordon-2010-invisible-war-iraq-sanctions",
+    "norris-2016-chinese-economic-statecraft",
+    "norris-2021-china-post-cold-war-economic-statecraft",
+    "lim-ferguson-2022-informal-economic-sanctions-thaad",
+    "xiong-2025-china-dilemma-sanctions-economic-coercion",
+    "ferguson-2025-china-russia-implementation-economic-sanctions",
+    "farrell-newman-2023-underground-empire",
+    "fishman-2025-chokepoints-economic-warfare",
+  ].forEach((id) => assert.equal(articleIds.has(id), true, `${id} should be present`));
+
+  const chinaCoercionItems = articles.filter((record) =>
+    (record.sourceKinds ?? []).includes("china-economic-coercion"),
+  );
+  assert.equal(chinaCoercionItems.length >= 5, true);
+});
+
 test("fourth-round resources include both court cases and arbitration materials", () => {
   const tags = new Set(articles.flatMap((record) => record.sourceKinds));
   assert.equal(tags.has("case"), true);

@@ -52,13 +52,13 @@ export const articlesPart7 = [
     publisher: "Journal of International Trade Law and Policy",
     year: 2025,
     language: "en",
-    sourceKinds: ["scholar", "law-journal"],
-    jurisdictions: ["International", "European Union", "United States", "China"],
-    relatedLawIds: ["eu-blocking-statute", "cn-blocking-rules-2021", "cn-extraterritorial-jurisdiction-2026"],
+    sourceKinds: ["scholar", "law-journal", "extraterritoriality", "blocking-statutes"],
+    jurisdictions: ["European Union", "United States", "International", "China"],
+    relatedLawIds: ["cn-blocking-rules-2021", "eu-blocking-statute", "us-ieepa-1977"],
     abstract:
       "This article, in a 2025 special issue on sanctions, addresses legal and policy tools used to counter extraterritorial sanctions, making it directly relevant to blocking statutes and China's anti-long-arm architecture.",
     accessMode: "summary",
-    sourceUrl: "https://www.sciencedirect.com/org/journal/journal-of-international-trade-law-and-policy/vol/24/issue/1",
+    sourceUrl: "https://www.sciencedirect.com/org/science/article/pii/S147700242500004X",
   },
   {
     id: "schaeffer-2025-retorsions-countermeasures",

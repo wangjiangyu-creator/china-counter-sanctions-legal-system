@@ -26,6 +26,20 @@ test("all article records declare copyright handling", () => {
   });
 });
 
+test("all article ids are unique across split files", () => {
+  const counts = new Map();
+  articles.forEach((record) => {
+    counts.set(record.id, (counts.get(record.id) ?? 0) + 1);
+  });
+
+  const duplicates = [...counts.entries()]
+    .filter(([, count]) => count > 1)
+    .map(([id]) => id)
+    .sort();
+
+  assert.deepEqual(duplicates, []);
+});
+
 test("all official statement records satisfy the required schema", () => {
   officialStatements.forEach((record) => assert.doesNotThrow(() => validateOfficialStatementRecord(record)));
 });

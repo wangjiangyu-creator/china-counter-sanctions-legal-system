@@ -1,14 +1,14 @@
-import { articlesPart1 } from "./articles.part1.js";
-import { articlesPart2 } from "./articles.part2.js";
-import { articlesPart3 } from "./articles.part3.js";
-import { articlesPart4 } from "./articles.part4.js";
-import { articlesPart5 } from "./articles.part5.js";
-import { articlesPart6 } from "./articles.part6.js";
-import { articlesPart7 } from "./articles.part7.js";
-import { articlesPart8 } from "./articles.part8.js";
-import { articlesPart9 } from "./articles.part9.js";
-import { articlesPart10 } from "./articles.part10.js";
-import { articlesPart11 } from "./articles.part11.js";
+import { articlesPart1 } from "./articles.part1.js?v=20260525a";
+import { articlesPart2 } from "./articles.part2.js?v=20260525a";
+import { articlesPart3 } from "./articles.part3.js?v=20260525a";
+import { articlesPart4 } from "./articles.part4.js?v=20260525a";
+import { articlesPart5 } from "./articles.part5.js?v=20260525a";
+import { articlesPart6 } from "./articles.part6.js?v=20260525a";
+import { articlesPart7 } from "./articles.part7.js?v=20260525a";
+import { articlesPart8 } from "./articles.part8.js?v=20260525a";
+import { articlesPart9 } from "./articles.part9.js?v=20260525a";
+import { articlesPart10 } from "./articles.part10.js?v=20260525a";
+import { articlesPart11 } from "./articles.part11.js?v=20260525a";
 
 export const articles = [
   ...articlesPart1,
