@@ -637,7 +637,7 @@ function renderLawDetail(record, detailLanguage) {
             relatedArticles.length
               ? `
                 <div class="resource-stack">
-                  ${renderResourceGroup("学者文章", "优先保留支持中国反制裁体系解释的学术资料。", groupedResources.scholar)}
+                  ${renderResourceGroup("学术专著与期刊文章", "优先保留支持中国反制裁体系解释的学术专著、法学与国际关系期刊文章和相关评议。", groupedResources.scholar)}
                   ${renderResourceGroup("律所与实务文章", "集中收录合规、交易和争议解决可直接参考的实务分析。", groupedResources.practitioner)}
                   <section class="resource-group">
                     <div class="section-head">
@@ -2474,7 +2474,7 @@ function renderHomePortal() {
     renderPortalCard({
       eyebrow: "研究索引",
       title: "学术与政策分析",
-      description: "保存学者、律师、智库、法学期刊和政策机构关于制裁与单边强制措施的非个案分析文章和报告链接。",
+      description: "保存学者、律师、智库，含法学与国际关系期刊及学术专著的制裁与单边强制措施相关分析文章和报告链接。",
       href: "#/analysis",
       count: `${analysisArticles.length + indexedInternationalResearchReports.length} 项`,
       links: renderCompactLinks(scholarArticles.length ? scholarArticles : analysisArticles, (article) => article.sourceUrl, (article) => article.title, 4),
@@ -2718,19 +2718,19 @@ function renderAnalysisList() {
           <div>
             <p class="eyebrow">研究与评论</p>
             <h1>学术与政策分析</h1>
-            <p class="detail-summary">本页集中保存现有所有分析文章、律师实务评论、法学期刊文章、智库和政策研究报告。文章原则上提供摘要和原始链接，尊重原作者版权。</p>
+            <p class="detail-summary">本页集中保存现有所有分析文章、律师实务评论、法学与国际关系期刊文章、学术专著，以及智库和政策研究报告。文章原则上提供摘要和原始链接，尊重原作者版权。</p>
           </div>
           <aside class="meta-panel">
             <dl>
               <div><dt>非个案分析文章</dt><dd>${analysisArticles.length}</dd></div>
               <div><dt>政策报告</dt><dd>${indexedInternationalResearchReports.length}</dd></div>
-              <div><dt>学术文章</dt><dd>${grouped.scholar.length}</dd></div>
+              <div><dt>学术资料</dt><dd>${grouped.scholar.length}</dd></div>
             </dl>
           </aside>
         </div>
       </section>
 
-      ${renderResourceGroup("学者与法学期刊文章", "过去五年及重要基础文献中关于制裁、反制裁、域外管辖和单边强制措施的学术文章。", grouped.scholar)}
+      ${renderResourceGroup("学术专著与法学/国际关系期刊文章", "过去五年及重要基础文献中关于制裁、反制裁、域外管辖和单边强制措施的书籍、法学与国际关系期刊、以及法评文章。", grouped.scholar)}
       ${renderResourceGroup("律师与实务评论", "律师事务所、专业机构和实务作者关于合规、诉讼、执行和风险管理的分析。", grouped.practitioner)}
 
       <section class="detail-section">

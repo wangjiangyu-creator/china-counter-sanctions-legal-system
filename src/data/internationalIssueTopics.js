@@ -39,4 +39,19 @@ export const internationalIssueTopics = [
       "把出口管制、实体清单、规避执法和经济治略研究与相关国际法和判决材料并排组织。",
     matchTopics: ["Export Controls", "Economic Statecraft", "Entity List", "Sanctions Evasion"],
   },
+  {
+    id: "economic-coercion-and-outbound-investment-security",
+    nameZh: "经济胁迫、对外投资安全与海外利益保护",
+    nameEn: "Economic coercion, outbound investment security, and overseas interests",
+    description:
+      "把中国对外投资保护、欧盟反经济胁迫工具、美国对外投资安全计划以及联合国关于单边强制措施的国际法材料放在同一入口下比较。",
+    matchTopics: [
+      "economic coercion",
+      "outbound investment",
+      "China technology restrictions",
+      "Unilateral Coercive Measures",
+      "Economic Statecraft",
+      "international law",
+    ],
+  },
 ];

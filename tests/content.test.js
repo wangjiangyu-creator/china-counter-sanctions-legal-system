@@ -158,6 +158,7 @@ test("china coverage includes the core counter-sanctions and anti-extraterritori
     "cn-pipl-2021",
     "cn-international-criminal-judicial-assistance-law-2018",
     "cn-spc-foreign-related-civil-commercial-jurisdiction-2022",
+    "cn-outbound-investment-regulation-2026",
   ];
 
   requiredIds.forEach((id) => assert.equal(chinaIds.has(id), true, `${id} should be present`));
@@ -218,6 +219,7 @@ test("core China counter-sanctions records include richer bilingual sectioning",
     "cn-afsl-implementation-2025",
     "cn-extraterritorial-jurisdiction-2026",
     "cn-foreign-trade-law-2025",
+    "cn-outbound-investment-regulation-2026",
   ];
 
   coreIds.forEach((id) => {
@@ -243,8 +245,52 @@ test("third-round topic catalog includes deep-dive China aggregation pages", () 
     "extraterritorial-jurisdiction",
     "data-and-cybersecurity",
     "export-control-and-foreign-trade",
+    "outbound-investment-and-overseas-interests",
   ].forEach((id) => assert.equal(topicIds.has(id), true, `${id} should be present`));
   assert.equal(topics.length >= 5, true);
+});
+
+test("new outbound investment regulation is linked to official, lawyer, and scholar commentary", () => {
+  const law = laws.find((record) => record.id === "cn-outbound-investment-regulation-2026");
+  assert.ok(law, "cn-outbound-investment-regulation-2026 should exist");
+  assert.equal(law.effectiveDate, "2026-07-01");
+  assert.equal(law.sources.some((source) => source.url.includes("gov.cn")), true);
+  assert.equal((law.topics ?? []).includes("\u6295\u8d44\u58c1\u5792\u8c03\u67e5"), true);
+  assert.equal((law.topics ?? []).includes("\u53cd\u5236\u88c1"), true);
+
+  const ids = new Set(articles.map((record) => record.id));
+  [
+    "moj-ndrc-mofcom-2026-outbound-investment-qa",
+    "kingwood-2026-outbound-investment-regulation",
+    "junhe-2026-outbound-investment-security-framework",
+    "gaopeng-2026-outbound-investment-policy-environment",
+    "xinhua-2026-outbound-investment-expert-views",
+  ].forEach((id) => assert.equal(ids.has(id), true, `${id} should be included`));
+
+  const related = articles.filter((record) =>
+    (record.relatedLawIds ?? []).includes("cn-outbound-investment-regulation-2026"),
+  );
+  const sourceKinds = new Set(related.flatMap((record) => record.sourceKinds ?? []));
+  ["official-explainer", "law-firm", "scholar"].forEach((kind) => {
+    assert.equal(sourceKinds.has(kind), true, `${kind} should be represented`);
+  });
+});
+
+test("comparative law shelf includes economic coercion and outbound-investment controls", () => {
+  const lawIds = new Set(laws.map((record) => record.id));
+  [
+    "eu-anti-coercion-instrument-2023",
+    "us-outbound-investment-security-program-2025",
+    "us-fend-off-fentanyl-act-2024",
+  ].forEach((id) => assert.equal(lawIds.has(id), true, `${id} should be present`));
+
+  const euAci = laws.find((record) => record.id === "eu-anti-coercion-instrument-2023");
+  assert.equal((euAci?.topics ?? []).includes("economic coercion"), true);
+  assert.equal((euAci?.topics ?? []).includes("response measures"), true);
+
+  const usOutbound = laws.find((record) => record.id === "us-outbound-investment-security-program-2025");
+  assert.equal((usOutbound?.topics ?? []).includes("outbound investment"), true);
+  assert.equal((usOutbound?.topics ?? []).includes("China technology restrictions"), true);
 });
 
 test("every topic has enough related laws for an actual aggregation page", () => {
@@ -347,6 +393,15 @@ test("index metadata and app shell do not contain visible encoding corruption", 
   assert.equal(appSource.includes("\u00E2\u2020\u0090"), false);
 });
 
+test("app shell bumps cache-busting version for the latest data update", () => {
+  const indexSource = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
+  const mainSource = fs.readFileSync(new URL("../src/main.js", import.meta.url), "utf8");
+
+  assert.equal(indexSource.includes("./src/main.js?v=20260603a"), true);
+  assert.equal(mainSource.includes("./app.js?v=20260603a"), true);
+  assert.equal(mainSource.includes('source.replaceAll("20260525b", "20260603a")'), true);
+});
+
 test("official positions archive includes core bilingual records from MFA, UN mission, and MOFCOM", () => {
   assert.equal(officialStatements.length >= 20, true);
   const institutions = new Set(officialStatements.map((record) => record.institutionEn));
@@ -445,10 +500,12 @@ test("international law archive includes core UN documents, special rapporteur r
   [
     "un-charter-1945",
     "ga-human-rights-ucm-79-167",
+    "ga-human-rights-ucm-80-209",
     "ga-international-day-ucm-79-293",
     "hrc-negative-impact-ucm-58-3",
     "sr-ucm-notion-types-48-59",
     "sr-ucm-social-rights-60-36",
+    "sr-ucm-education-a80-208",
     "sr-ucm-china-visit-57-55-add1",
     "sc-sanctions-information",
     "state-eu-unga-2024-ucm",
@@ -659,6 +716,7 @@ test("international law archive includes cross-branch issue navigation topics", 
     "blocking-statutes-secondary-sanctions-and-extraterritoriality",
     "asset-freezes-execution-and-state-immunity",
     "export-controls-and-economic-statecraft",
+    "economic-coercion-and-outbound-investment-security",
   ].forEach((id) => assert.equal(topicIds.has(id), true, `${id} should be present`));
 });
 

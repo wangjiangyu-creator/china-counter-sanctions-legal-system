@@ -1,1 +1,227 @@
-export const topics = [{"id":"blocking-statutes","nameZh":"\u963b\u65ad\u6cd5\u4e0e\u4e0d\u5f97\u9075\u5b88\u673a\u5236","nameEn":"Blocking Statutes and Non-Compliance Mechanisms","description":"\u6bd4\u8f83\u4e2d\u56fd\u3001\u6b27\u76df\u3001\u52a0\u62ff\u5927\u548c\u82f1\u56fd\u5982\u4f55\u5e94\u5bf9\u5916\u56fd\u6cd5\u5f8b\u548c\u5236\u88c1\u63aa\u65bd\u7684\u57df\u5916\u9002\u7528\uff0c\u5c24\u5176\u662f\u79c1\u4eba\u4e3b\u4f53\u662f\u5426\u88ab\u7981\u6b62\u9075\u5b88\u76f8\u5173\u5916\u56fd\u63aa\u65bd\u3002","relatedLawIds":["cn-blocking-rules-2021","cn-extraterritorial-jurisdiction-2026","eu-blocking-statute","ca-fema","uk-ptia-1980"],"comparisonRows":[{"label":"\u7981\u6b62\u9075\u5b88\u5916\u56fd\u63aa\u65bd","China":"\u6709\u7981\u4ee4\u673a\u5236","European Union":"\u539f\u5219\u4e0a\u7981\u6b62","Canada":"\u901a\u8fc7\u547d\u4ee4\u673a\u5236\u9650\u5236","United Kingdom":"\u53ef\u7531\u90e8\u957f\u547d\u4ee4\u963b\u65ad"},{"label":"\u62a5\u544a\u4e49\u52a1","China":"30\u65e5\u5185\u62a5\u544a\u5546\u52a1\u4e3b\u7ba1\u90e8\u95e8","European Union":"\u5411\u6b27\u59d4\u4f1a\u901a\u62a5","Canada":"\u53d6\u51b3\u4e8e\u5177\u4f53\u547d\u4ee4","United Kingdom":"\u5e76\u975e\u6838\u5fc3\u8bbe\u8ba1"},{"label":"\u6c11\u4e8b\u6551\u6d4e","China":"\u53ef\u8d77\u8bc9\u8bf7\u6c42\u8d54\u507f","European Union":"\u53ef\u56de\u6536\u635f\u5931","Canada":"\u53ef\u8ffd\u507f\u635f\u5bb3","United Kingdom":"\u4ee5\u547d\u4ee4\u548c\u5224\u51b3\u963b\u65ad\u4e3a\u4e3b"}]},{"id":"counter-sanctions","nameZh":"\u53cd\u5236\u88c1\u6388\u6743\u3001\u5217\u5355\u4e0e\u53cd\u5236\u63aa\u65bd","nameEn":"Counter-Sanctions, Listings, and Countermeasures","description":"\u56f4\u7ed5\u56fd\u5bb6\u662f\u5426\u53ef\u4ee5\u5bf9\u5236\u5b9a\u3001\u51b3\u5b9a\u3001\u5b9e\u65bd\u5916\u56fd\u9650\u5236\u63aa\u65bd\u7684\u4e2a\u4eba\u548c\u7ec4\u7ec7\u91c7\u53d6\u7b7e\u8bc1\u3001\u8d22\u4ea7\u3001\u4ea4\u6613\u548c\u6295\u8d44\u9650\u5236\u7b49\u53cd\u5236\u63aa\u65bd\u8fdb\u884c\u6bd4\u8f83\u3002","relatedLawIds":["cn-afsl-2021","cn-afsl-implementation-2025","cn-foreign-relations-law-2023","cn-unreliable-entity-list-2020","cn-export-control-law-2020","cn-national-security-law-2015","cn-foreign-trade-law-2025"],"comparisonRows":[{"label":"\u4e13\u95e8\u53cd\u5236\u6e05\u5355","China":"\u6709\u53cd\u5236\u6e05\u5355\u4e0e\u4e0d\u53ef\u9760\u5b9e\u4f53\u6e05\u5355","European Union":"\u65e0\u7edf\u4e00\u5bf9\u5e94\u6e05\u5355","Canada":"\u65e0\u540c\u7c7b\u6e05\u5355","United Kingdom":"\u65e0\u540c\u7c7b\u6e05\u5355"},{"label":"\u8d22\u4ea7\u51bb\u7ed3\u4e0e\u4ea4\u6613\u9650\u5236","China":"\u6709\u660e\u786e\u6388\u6743","European Union":"\u963b\u65ad\u6cd5\u4e0d\u4ee5\u6b64\u4e3a\u4e3b","Canada":"\u5e76\u975e\u6838\u5fc3\u673a\u5236","United Kingdom":"\u5e76\u975e\u6838\u5fc3\u673a\u5236"},{"label":"\u79c1\u4eba\u4e3b\u4f53\u4e49\u52a1","China":"\u5fc5\u987b\u6267\u884c\u53cd\u5236\u63aa\u65bd\uff0c\u4e0d\u5f97\u534f\u52a9\u6267\u884c\u6b67\u89c6\u6027\u63aa\u65bd","European Union":"\u4e3b\u8981\u662f\u4e0d\u9075\u5b88\u4e0e\u62a5\u544a","Canada":"\u4f9d\u547d\u4ee4\u800c\u5b9a","United Kingdom":"\u4f9d\u547d\u4ee4\u800c\u5b9a"}]},{"id":"extraterritorial-jurisdiction","nameZh":"\u53cd\u57df\u5916\u7ba1\u8f96\u4e0e\u957f\u81c2\u7ba1\u8f96\u5e94\u5bf9","nameEn":"Countering Extraterritorial Jurisdiction","description":"\u56f4\u7ed5\u56fd\u5bb6\u5982\u4f55\u8ba4\u5b9a\u5916\u56fd\u57df\u5916\u7ba1\u8f96\u63aa\u65bd\u662f\u5426\u4e0d\u5f53\uff0c\u5e76\u901a\u8fc7\u884c\u653f\u3001\u53f8\u6cd5\u6216\u5916\u4ea4\u8def\u5f84\u8fdb\u884c\u56de\u5e94\u3002","relatedLawIds":["cn-extraterritorial-jurisdiction-2026","cn-blocking-rules-2021","cn-data-security-law-2021","cn-cybersecurity-law-2016","cn-export-control-law-2020","ca-fema"],"comparisonRows":[{"label":"\u8bc6\u522b\u5de5\u4f5c\u673a\u5236","China":"\u6709\u4e13\u95e8\u8bc6\u522b\u548c\u534f\u8c03\u673a\u5236","European Union":"\u4ee5\u6b27\u59d4\u4f1a\u6267\u884c\u4e3a\u6838\u5fc3","Canada":"\u4ee5\u8054\u90a6\u603b\u68c0\u5bdf\u957f\u4e3a\u6838\u5fc3","United Kingdom":"\u4ee5\u90e8\u957f\u547d\u4ee4\u4e3a\u6838\u5fc3"},{"label":"\u5bf9\u5916\u78cb\u5546\u6216\u8c03\u67e5","China":"\u660e\u6587\u5141\u8bb8\u8c03\u67e5\u548c\u5bf9\u5916\u78cb\u5546","European Union":"\u4ee5\u6267\u884c\u548c\u884c\u653f\u6c9f\u901a\u4e3a\u4e3b","Canada":"\u901a\u8fc7\u547d\u4ee4\u548c\u884c\u653f\u88c1\u91cf","United Kingdom":"\u901a\u8fc7\u547d\u4ee4\u4ecb\u5165"},{"label":"\u79c1\u4eba\u8bc9\u6743\u6216\u635f\u5931\u56de\u6536","China":"\u4fdd\u7559\u79c1\u4eba\u8bc9\u6743\u548c\u652f\u6301\u673a\u5236","European Union":"\u53ef\u7d22\u56de\u635f\u5931","Canada":"\u53ef\u8ffd\u507f\u635f\u5931","United Kingdom":"\u76f8\u5bf9\u6709\u9650"}]},{"id":"data-and-cybersecurity","nameZh":"\u6570\u636e\u3001\u7f51\u7edc\u5b89\u5168\u4e0e\u57df\u5916\u6267\u6cd5\u8bf7\u6c42","nameEn":"Data, Cybersecurity, and Extraterritorial Requests","description":"\u805a\u7126\u4e2d\u56fd\u5982\u4f55\u901a\u8fc7\u6570\u636e\u5b89\u5168\u6cd5\u3001\u7f51\u7edc\u5b89\u5168\u6cd5\u4e0e\u53cd\u57df\u5916\u7ba1\u8f96\u5236\u5ea6\u5904\u7406\u8de8\u5883\u6570\u636e\u3001\u5883\u5916\u8c03\u67e5\u53d6\u8bc1\u3001\u5173\u952e\u4fe1\u606f\u57fa\u7840\u8bbe\u65bd\u4fdd\u62a4\u548c\u7f51\u7edc\u7a7a\u95f4\u4e3b\u6743\u95ee\u9898\u3002","relatedLawIds":["cn-data-security-law-2021","cn-cybersecurity-law-2016","cn-national-security-law-2015","cn-extraterritorial-jurisdiction-2026"],"comparisonRows":[{"label":"\u57df\u5916\u635f\u5bb3\u6761\u6b3e","China":"\u6570\u636e\u6cd5\u4e0e\u7f51\u5b89\u6cd5\u5747\u4fdd\u7559\u57df\u5916\u8ffd\u8d23","European Union":"\u4ee5\u6570\u636e\u4fdd\u62a4\u548c\u4e3b\u6743\u89c4\u5219\u4e3a\u4e3b","Canada":"\u65e0\u7edf\u4e00\u5bf9\u5e94\u6846\u67b6","United Kingdom":"\u5206\u6563\u4e8e\u90e8\u95e8\u6cd5\u4e2d"},{"label":"\u8de8\u5883\u6570\u636e\u63a7\u5236","China":"\u91cd\u8981\u6570\u636e\u4e0e\u5173\u57fa\u6570\u636e\u51fa\u5883\u53d7\u63a7","European Union":"\u4ee5GDPR\u548c\u5b89\u5168\u4f8b\u5916\u4e3a\u6838\u5fc3","Canada":"\u4ee5\u884c\u4e1a\u89c4\u5219\u548c\u9690\u79c1\u6cd5\u4e3a\u4e3b","United Kingdom":"\u5ef6\u7eed\u82f1\u7248\u6570\u636e\u4fdd\u62a4\u4f53\u7cfb"},{"label":"\u5883\u5916\u6267\u6cd5\u53d6\u8bc1\u56de\u5e94","China":"\u4e3b\u7ba1\u673a\u5173\u5ba1\u6279\u548c\u5bf9\u7b49\u539f\u5219","European Union":"\u4f9d\u53f8\u6cd5\u534f\u52a9\u548c\u6570\u636e\u4fdd\u62a4\u89c4\u5219\u5904\u7406","Canada":"\u4f9dMLAT\u4e0e\u6cd5\u9662\u7a0b\u5e8f\u5904\u7406","United Kingdom":"\u4f9d\u53f8\u6cd5\u534f\u52a9\u4e0e\u62ab\u9732\u5236\u5ea6\u5904\u7406"}]},{"id":"export-control-and-foreign-trade","nameZh":"\u51fa\u53e3\u7ba1\u5236\u3001\u5916\u8d38\u6cbb\u7406\u4e0e\u5bf9\u7b49\u56de\u5e94","nameEn":"Export Control, Foreign Trade Governance, and Reciprocal Response","description":"\u56f4\u7ed5\u51fa\u53e3\u7ba1\u5236\u6cd5\u3001\u5916\u8d38\u6cd5\u3001\u4e0d\u53ef\u9760\u5b9e\u4f53\u6e05\u5355\u4e0e\u56fd\u5bb6\u5b89\u5168\u6846\u67b6\uff0c\u89c2\u5bdf\u4e2d\u56fd\u5982\u4f55\u628a\u8d38\u6613\u7ba1\u7406\u3001\u4f9b\u5e94\u94fe\u5b89\u5168\u548c\u5bf9\u7b49\u53cd\u5236\u8fde\u63a5\u4e3a\u4e00\u5957\u6d89\u5916\u7ecf\u6d4e\u6cbb\u7406\u5de5\u5177\u3002","relatedLawIds":["cn-export-control-law-2020","cn-foreign-trade-law-2025","cn-unreliable-entity-list-2020","cn-national-security-law-2015"],"comparisonRows":[{"label":"\u5bf9\u7b49\u53cd\u5236\u6761\u6b3e","China":"\u51fa\u53e3\u7ba1\u5236\u6cd5\u548c\u5916\u8d38\u6cd5\u5747\u53ef\u627f\u63a5","European Union":"\u4ee5\u5171\u540c\u8d38\u6613\u653f\u7b56\u548c\u5236\u88c1\u6cd5\u4e3a\u4e3b","Canada":"\u4ee5FEMA\u7b49\u4e2a\u522b\u5de5\u5177\u56de\u5e94","United Kingdom":"\u4ee5\u5236\u88c1\u548c\u8d38\u6613\u6cd5\u5206\u6d41\u5904\u7406"},{"label":"\u89c4\u907f\u6cbb\u7406","China":"\u660e\u6587\u7981\u6b62\u62c6\u5206\u4ea4\u6613\u3001\u7b2c\u4e09\u5730\u8f6c\u8fd0\u7b49\u89c4\u907f","European Union":"\u4fa7\u91cd\u6d77\u5173\u548c\u5236\u88c1\u6267\u884c","Canada":"\u4f9d\u884c\u653f\u6267\u6cd5\u5904\u7406","United Kingdom":"\u4f9d\u51fa\u53e3\u7ba1\u5236\u548c\u5236\u88c1\u6267\u6cd5\u5904\u7406"},{"label":"\u5b9e\u4f53\u5217\u5355\u6216\u9650\u5236","China":"\u6709\u4e0d\u53ef\u9760\u5b9e\u4f53\u6e05\u5355\u548c\u51fa\u53e3\u7ba1\u5236\u5de5\u5177","European Union":"\u65e0\u7edf\u4e00\u8d38\u6613\u53cd\u5236\u5217\u5355","Canada":"\u65e0\u540c\u7c7b\u7edf\u4e00\u5217\u5355","United Kingdom":"\u65e0\u540c\u7c7b\u7edf\u4e00\u5217\u5355"}]}];
+export const topics = [
+  {
+    id: "blocking-statutes",
+    nameZh: "阻断法与不得遵守机制",
+    nameEn: "Blocking Statutes and Non-Compliance Mechanisms",
+    description:
+      "比较中国、欧盟、加拿大和英国如何应对外国法律和制裁措施的域外适用，尤其是私人主体是否被禁止遵守相关外国措施。",
+    relatedLawIds: [
+      "cn-blocking-rules-2021",
+      "cn-extraterritorial-jurisdiction-2026",
+      "eu-blocking-statute",
+      "ca-fema",
+      "uk-ptia-1980",
+    ],
+    comparisonRows: [
+      {
+        label: "禁止遵守外国措施",
+        China: "有禁令机制",
+        "European Union": "原则上禁止",
+        Canada: "通过命令机制限制",
+        "United Kingdom": "可由部长命令阻断",
+      },
+      {
+        label: "报告义务",
+        China: "30日内报告商务主管部门",
+        "European Union": "向欧委会通报",
+        Canada: "取决于具体命令",
+        "United Kingdom": "并非核心设计",
+      },
+      {
+        label: "民事救济",
+        China: "可起诉请求赔偿",
+        "European Union": "可回收损失",
+        Canada: "可追偿损害",
+        "United Kingdom": "以命令和判决阻断为主",
+      },
+    ],
+  },
+  {
+    id: "counter-sanctions",
+    nameZh: "反制裁授权、列单与反制措施",
+    nameEn: "Counter-Sanctions, Listings, and Countermeasures",
+    description:
+      "围绕国家是否可以对制定、决定、实施外国限制措施的个人和组织采取签证、财产、交易和投资限制等反制措施进行比较。",
+    relatedLawIds: [
+      "cn-afsl-2021",
+      "cn-afsl-implementation-2025",
+      "cn-foreign-relations-law-2023",
+      "cn-unreliable-entity-list-2020",
+      "cn-export-control-law-2020",
+      "cn-national-security-law-2015",
+      "cn-foreign-trade-law-2025",
+      "cn-outbound-investment-regulation-2026",
+    ],
+    comparisonRows: [
+      {
+        label: "专门反制清单",
+        China: "有反制清单与不可靠实体清单",
+        "European Union": "无统一对应清单，但有反经济胁迫工具",
+        Canada: "无同类清单",
+        "United Kingdom": "无同类清单",
+      },
+      {
+        label: "财产冻结与交易限制",
+        China: "有明确授权，并可在投资经营歧视措施下衔接反制清单",
+        "European Union": "阻断法不以此为主，ACI以回应措施为最后手段",
+        Canada: "并非核心机制",
+        "United Kingdom": "并非核心机制",
+      },
+      {
+        label: "私人主体义务",
+        China: "必须执行反制措施，不得协助执行歧视性措施",
+        "European Union": "主要是不遵守、报告与欧盟层面回应",
+        Canada: "依命令而定",
+        "United Kingdom": "依命令而定",
+      },
+    ],
+  },
+  {
+    id: "extraterritorial-jurisdiction",
+    nameZh: "反域外管辖与长臂管辖应对",
+    nameEn: "Countering Extraterritorial Jurisdiction",
+    description:
+      "围绕国家如何认定外国域外管辖措施是否不当，并通过行政、司法或外交路径进行回应。",
+    relatedLawIds: [
+      "cn-extraterritorial-jurisdiction-2026",
+      "cn-blocking-rules-2021",
+      "cn-data-security-law-2021",
+      "cn-cybersecurity-law-2016",
+      "cn-export-control-law-2020",
+      "ca-fema",
+    ],
+    comparisonRows: [
+      {
+        label: "识别工作机制",
+        China: "有专门识别和协调机制",
+        "European Union": "以欧委会执行为核心",
+        Canada: "以联邦总检察长为核心",
+        "United Kingdom": "以部长命令为核心",
+      },
+      {
+        label: "对外磋商或调查",
+        China: "明文允许调查和对外磋商",
+        "European Union": "以执行和行政沟通为主",
+        Canada: "通过命令和行政裁量",
+        "United Kingdom": "通过命令介入",
+      },
+      {
+        label: "私人诉权或损失回收",
+        China: "保留私人诉权和支持机制",
+        "European Union": "可索回损失",
+        Canada: "可追偿损失",
+        "United Kingdom": "相对有限",
+      },
+    ],
+  },
+  {
+    id: "data-and-cybersecurity",
+    nameZh: "数据、网络安全与域外执法请求",
+    nameEn: "Data, Cybersecurity, and Extraterritorial Requests",
+    description:
+      "聚焦中国如何通过数据安全法、网络安全法与反域外管辖制度处理跨境数据、境外调查取证、关键信息基础设施保护和网络空间主权问题。",
+    relatedLawIds: [
+      "cn-data-security-law-2021",
+      "cn-cybersecurity-law-2016",
+      "cn-national-security-law-2015",
+      "cn-extraterritorial-jurisdiction-2026",
+      "cn-outbound-investment-regulation-2026",
+    ],
+    comparisonRows: [
+      {
+        label: "域外损害条款",
+        China: "数据法与网安法均保留域外追责",
+        "European Union": "以数据保护和主权规则为主",
+        Canada: "无统一对应框架",
+        "United Kingdom": "分散于部门法中",
+      },
+      {
+        label: "跨境数据控制",
+        China: "重要数据与关基数据出境受控，对外投资材料出境也须遵守相关规则",
+        "European Union": "以GDPR和安全例外为核心",
+        Canada: "以行业规则和隐私法为主",
+        "United Kingdom": "延续英版数据保护体系",
+      },
+      {
+        label: "境外执法取证回应",
+        China: "主管机关审批和对等原则",
+        "European Union": "依司法协助和数据保护规则处理",
+        Canada: "依MLAT与法院程序处理",
+        "United Kingdom": "依司法协助与披露制度处理",
+      },
+    ],
+  },
+  {
+    id: "export-control-and-foreign-trade",
+    nameZh: "出口管制、外贸治理与对等回应",
+    nameEn: "Export Control, Foreign Trade Governance, and Reciprocal Response",
+    description:
+      "围绕出口管制法、外贸法、不可靠实体清单与国家安全框架，观察中国如何把贸易管理、供应链安全和对等反制连接为一套涉外经济治理工具。",
+    relatedLawIds: [
+      "cn-export-control-law-2020",
+      "cn-foreign-trade-law-2025",
+      "cn-unreliable-entity-list-2020",
+      "cn-national-security-law-2015",
+      "cn-outbound-investment-regulation-2026",
+    ],
+    comparisonRows: [
+      {
+        label: "对等反制条款",
+        China: "出口管制法、外贸法和对外投资规定均可承接",
+        "European Union": "以共同贸易政策和反经济胁迫工具为主",
+        Canada: "以FEMA等个别工具回应",
+        "United Kingdom": "以制裁和贸易法分流处理",
+      },
+      {
+        label: "规避治理",
+        China: "明文禁止拆分交易、第三地转运等规避",
+        "European Union": "侧重海关和制裁执行",
+        Canada: "依行政执法处理",
+        "United Kingdom": "依出口管制和制裁执法处理",
+      },
+      {
+        label: "实体列单或限制",
+        China: "有不可靠实体清单、出口管制工具和投资经营限制回应",
+        "European Union": "无统一贸易反制列单，但可使用共同商业政策回应",
+        Canada: "无同类统一列单",
+        "United Kingdom": "无同类统一列单",
+      },
+    ],
+  },
+  {
+    id: "outbound-investment-and-overseas-interests",
+    nameZh: "对外投资、海外利益保护与经济胁迫",
+    nameEn: "Outbound Investment, Overseas Interests, and Economic Coercion",
+    description:
+      "聚合中国对外投资规定、反外国制裁制度、对外贸易与出口管制工具，并与欧盟反经济胁迫工具和美国对外投资安全计划比较，观察投资活动如何进入反制裁与经济安全法体系。",
+    relatedLawIds: [
+      "cn-outbound-investment-regulation-2026",
+      "cn-afsl-2021",
+      "cn-afsl-implementation-2025",
+      "cn-foreign-trade-law-2025",
+      "cn-export-control-law-2020",
+      "eu-anti-coercion-instrument-2023",
+      "us-outbound-investment-security-program-2025",
+    ],
+    comparisonRows: [
+      {
+        label: "制度入口",
+        China: "以境外投资服务、监管、保护和安全审查为入口",
+        "European Union": "以第三国经济胁迫识别和欧盟回应框架为入口",
+        "United States": "以美国主体对关注国家敏感技术投资限制为入口",
+      },
+      {
+        label: "制裁或反制裁连接",
+        China: "投资经营歧视措施可衔接反制清单和交易、投资、入境等限制",
+        "European Union": "ACI可在最后手段下采取贸易、投资或其他回应措施",
+        "United States": "对外投资规则与出口管制、技术限制和国家紧急权力并行",
+      },
+      {
+        label: "企业合规重点",
+        China: "核准备案、安全审查、出口管制、数据出境、海外争端和反制裁风险",
+        "European Union": "第三国胁迫识别、欧委会沟通、欧盟回应措施及损害修复",
+        "United States": "交易类型、技术范围、关注国家主体、知识标准和通知/禁止判断",
+      },
+    ],
+  },
+];

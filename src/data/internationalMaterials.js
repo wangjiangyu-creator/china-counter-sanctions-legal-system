@@ -854,4 +854,129 @@ export const internationalMaterials = [
       },
     },
   },
+  {
+    id: "ga-human-rights-ucm-80-209",
+    type: "international-material",
+    titleZh: "联大第80/209号决议：人权与单边强制措施",
+    titleEn: "GA Resolution 80/209: Human rights and unilateral coercive measures",
+    shortTitle: "A/RES/80/209",
+    jurisdiction: "United Nations",
+    documentType: "UNGA Resolution",
+    bodyZh: "联合国大会",
+    bodyEn: "UN General Assembly",
+    date: "2025-12-18",
+    status: "Official text",
+    languages: ["zh", "en"],
+    topics: ["Unilateral Coercive Measures", "Human Rights", "General Assembly", "International Obligations"],
+    summary:
+      "The eightieth-session General Assembly resolution continues the annual human-rights track on unilateral coercive measures. It was adopted on 18 December 2025 and provides the current GA benchmark following resolution 79/167.",
+    relatedLawIds: [
+      "cn-foreign-relations-law-2023",
+      "cn-afsl-2021",
+      "cn-outbound-investment-regulation-2026",
+    ],
+    sources: [
+      { label: "Official UN record", url: "https://digitallibrary.un.org/record/4098437?ln=en" },
+      { label: "Official UN English PDF", url: "https://digitallibrary.un.org/record/4098437/files/A_RES_80_209-EN.pdf" },
+      { label: "Official UN Chinese PDF", url: "https://documents.un.org/api/symbol/access?l=zh&s=A%2FRES%2F80%2F209&t=pdf" },
+    ],
+    texts: {
+      zh: {
+        note: "联合国提供正式中文文本。站内内容为便于研究而作的摘要。",
+        sections: [
+          {
+            heading: "决议位置",
+            body:
+              "第80/209号决议延续联大关于单边强制措施与人权影响的年度决议线，是第79/167号决议之后的最新一轮大会正式文本。",
+          },
+          {
+            heading: "研究价值",
+            body:
+              "该决议便于比较中国、欧盟、英国、美国等主体对单边制裁、限制性措施和经济胁迫的不同法律叙述，也适合作为国际法部分按年份更新的核心节点。",
+          },
+        ],
+      },
+      en: {
+        note: "Official UN text available in all six UN languages. The archive highlights the continuing institutional line.",
+        sections: [
+          {
+            heading: "Current GA benchmark",
+            body:
+              "Resolution 80/209 continues the General Assembly's annual human-rights framing of unilateral coercive measures and follows resolution 79/167 as the current benchmark in the archive.",
+          },
+          {
+            heading: "Voting and legal narrative",
+            body:
+              "The UN record identifies the resolution as adopted on 18 December 2025. For research purposes, it is useful because it records how the UCM issue continues to divide states while remaining anchored in human rights, sovereign equality, and international obligations.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "sr-ucm-education-a80-208",
+    type: "international-material",
+    titleZh: "特别报告员报告：单边强制措施对受教育权和其他学术权利的影响",
+    titleEn: "Special Rapporteur report: Impact of unilateral coercive measures on the right to education and other academic rights",
+    shortTitle: "A/80/208",
+    jurisdiction: "United Nations",
+    documentType: "Special Rapporteur Report",
+    reportSeries: "特别报告员专题报告",
+    bodyZh: "联合国人权理事会特别程序",
+    bodyEn: "UN Human Rights Council Special Procedures",
+    date: "2025-07-18",
+    status: "Official text",
+    languages: ["zh", "en"],
+    topics: [
+      "Unilateral Coercive Measures",
+      "Human Rights",
+      "Right to Education",
+      "Academic Freedom",
+      "Overcompliance",
+    ],
+    summary:
+      "This Special Rapporteur report examines how unilateral coercive measures, enforcement practices, and overcompliance affect the right to education, academic freedoms, access to research resources, and academic cooperation.",
+    relatedLawIds: [
+      "cn-foreign-relations-law-2023",
+      "cn-afsl-2021",
+      "cn-extraterritorial-jurisdiction-2026",
+    ],
+    sources: [
+      { label: "Official UN record", url: "https://digitallibrary.un.org/record/4087235?ln=en" },
+      { label: "Official UN English PDF", url: "https://digitallibrary.un.org/record/4087235/files/A_80_208-EN.pdf" },
+      { label: "Official OHCHR sanctions platform", url: "https://sanctionsplatform.ohchr.org/record/58538" },
+    ],
+    texts: {
+      zh: {
+        note: "联合国提供正式中文文本。站内内容为研究摘要。",
+        sections: [
+          {
+            heading: "报告主题",
+            body:
+              "该报告把单边强制措施及其执行方式、过度合规与受教育权、学术自由、科学进步受益权、研究资源获取和国际学术合作联系起来。",
+          },
+          {
+            heading: "资料价值",
+            body:
+              "相较一般制裁合法性辩论，该报告把制裁影响具体化到教育、科研、专业资源和学术交流层面，适合作为国际法部分的人权影响专题材料。",
+          },
+        ],
+      },
+      en: {
+        note: "Official UN report transmitted by the Secretary-General.",
+        sections: [
+          {
+            heading: "Focus",
+            body:
+              "The report focuses on the impact of unilateral coercive measures, their enforcement, and overcompliance on the right to education and other academic rights, including access to academic and professional resources.",
+          },
+          {
+            heading: "Use in the archive",
+            body:
+              "It extends the archive beyond trade, finance, and assets by showing how sanctions and overcompliance can affect education, science, academic freedoms, and cross-border scholarly cooperation.",
+          },
+        ],
+      },
+    },
+  },
 ];
