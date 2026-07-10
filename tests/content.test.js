@@ -428,6 +428,20 @@ test("home page includes author and copyright notice in the hero area", () => {
   assert.equal(appSource.includes("Copyright in all articles belongs to their original authors."), true);
 });
 
+test("home page and shared footer include the teaching-use notice", () => {
+  const appSource = fs.readFileSync(new URL("../src/app.js", import.meta.url), "utf8");
+  const styleSource = fs.readFileSync(new URL("../assets/styles.css", import.meta.url), "utf8");
+
+  assert.equal(appSource.includes("siteUsageNotice"), true);
+  assert.equal(appSource.includes("\\u9999\\u6e2f\\u57ce\\u5e02\\u5927\\u5b66\\u6cd5\\u5f8b\\u5b66\\u9662"), true);
+  assert.equal(appSource.includes("\\u6559\\u5b66\\u7814\\u7a76\\u4f7f\\u7528"), true);
+  assert.equal(appSource.includes("site-usage-note-home"), true);
+  assert.equal(appSource.includes("site-footer"), true);
+  assert.equal(styleSource.includes("--notice: #5b3fd7"), true);
+  assert.equal(styleSource.includes("site-usage-note-home"), true);
+  assert.equal(styleSource.includes("site-footer"), true);
+});
+
 test("index metadata and app shell do not contain visible encoding corruption", () => {
   const appSource = fs.readFileSync(new URL("../src/app.js", import.meta.url), "utf8");
   const indexSource = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
@@ -443,11 +457,14 @@ test("app shell bumps cache-busting version for the latest data update", () => {
   const indexSource = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
   const mainSource = fs.readFileSync(new URL("../src/main.js", import.meta.url), "utf8");
   const articlesSource = fs.readFileSync(new URL("../src/data/articles.js", import.meta.url), "utf8");
+  const lawsSource = fs.readFileSync(new URL("../src/data/laws.js", import.meta.url), "utf8");
 
-  assert.equal(indexSource.includes("./src/main.js?v=20260710b"), true);
-  assert.equal(mainSource.includes("./app.js?v=20260710b"), true);
-  assert.equal(mainSource.includes('source.replaceAll("20260710a", "20260710b")'), true);
-  assert.equal(articlesSource.includes("./articles.part12.js?v=20260710b"), true);
+  assert.equal(indexSource.includes("./assets/styles.css?v=20260710c"), true);
+  assert.equal(indexSource.includes("./src/main.js?v=20260710c"), true);
+  assert.equal(mainSource.includes("./app.js?v=20260710c"), true);
+  assert.equal(mainSource.includes('source.replaceAll("20260710b", "20260710c")'), true);
+  assert.equal(articlesSource.includes("./articles.part12.js?v=20260710c"), true);
+  assert.equal(lawsSource.includes("./lawSourceSupplements.js?v=20260710c"), true);
 });
 
 test("official positions archive includes core bilingual records from MFA, UN mission, and MOFCOM", () => {

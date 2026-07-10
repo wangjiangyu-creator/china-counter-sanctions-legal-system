@@ -6,7 +6,7 @@ import { lawsPart5 } from "./laws.part5.js";
 import { lawsPart6 } from "./laws.part6.js";
 import { lawsPart7 } from "./laws.part7.js";
 import { lawsPart8 } from "./laws.part8.js";
-import { lawSourceSupplements } from "./lawSourceSupplements.js?v=20260710b";
+import { lawSourceSupplements } from "./lawSourceSupplements.js?v=20260710c";
 
 const baseLaws = [
   ...lawsPart1,

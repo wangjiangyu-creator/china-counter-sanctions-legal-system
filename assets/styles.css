@@ -7,6 +7,9 @@
   --accent: #8b2f1b;
   --accent-soft: #e8c7b2;
   --forest: #21453d;
+  --notice: #5b3fd7;
+  --notice-soft: rgba(91, 63, 215, 0.09);
+  --notice-line: rgba(91, 63, 215, 0.24);
   --card: rgba(255, 250, 241, 0.88);
   --shadow: 0 18px 50px rgba(37, 23, 17, 0.12);
   --radius-lg: 28px;
@@ -137,6 +140,20 @@ h3 {
   margin-top: 10px;
 }
 
+.site-usage-note {
+  color: var(--notice);
+  font-weight: 800;
+  line-height: 1.7;
+}
+
+.site-usage-note-home {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-left: 4px solid var(--notice);
+  border-radius: 10px;
+  background: var(--notice-soft);
+}
+
 .hero-credit {
   margin-top: auto;
   padding-top: 18px;
@@ -218,6 +235,18 @@ h3 {
 .site-credit p {
   margin: 0 0 12px;
   line-height: 1.7;
+}
+
+.site-footer {
+  margin-top: 32px;
+  padding: 18px 22px;
+  border: 1px solid var(--notice-line);
+  border-radius: 18px;
+  background: var(--notice-soft);
+}
+
+.site-footer p {
+  margin: 0;
 }
 
 .section-nav {

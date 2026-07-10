@@ -55,6 +55,9 @@ const indexedOfficialStatements = buildCatalogIndex(
     .sort((left, right) => right.date.localeCompare(left.date)),
 );
 
+const siteUsageNotice =
+  "\u672c\u7f51\u7ad9\u7531\u9999\u6e2f\u57ce\u5e02\u5927\u5b66\u6cd5\u5f8b\u5b66\u9662\u738b\u6c5f\u96e8\u6559\u6388\u7528Codex\u521b\u5efa\uff0c\u4ec5\u4f9b\u5176\u672c\u4eba\u6559\u5b66\u7814\u7a76\u4f7f\u7528\u3002";
+
 function collectInternationalThemeMaterials(theme, records) {
   if (!theme) return [];
 
@@ -181,6 +184,18 @@ function renderSectionNav(activeKey) {
   `;
 }
 
+function renderUsageNotice(extraClass = "") {
+  return `<p class="site-usage-note ${extraClass}">${escapeHtml(siteUsageNotice)}</p>`;
+}
+
+function renderSiteFooter() {
+  return `
+    <footer class="site-footer">
+      ${renderUsageNotice("site-usage-note-footer")}
+    </footer>
+  `;
+}
+
 function getActiveSection(view, route) {
   const normalizedRoute = String(route || "#/");
 
@@ -199,7 +214,9 @@ function getActiveSection(view, route) {
 }
 
 function withSectionNav(markup, activeKey) {
-  return String(markup).replace(/(<main class="[^"]*shell[^"]*">)/, `$1${renderSectionNav(activeKey)}`);
+  return String(markup)
+    .replace(/(<main class="[^"]*shell[^"]*">)/, `$1${renderSectionNav(activeKey)}`)
+    .replace(/<\/main>\s*$/, `${renderSiteFooter()}</main>`);
 }
 
 function renderSources(sources) {
@@ -2810,6 +2827,7 @@ function renderHome(state) {
           <p class="eyebrow">${"\u4e2d\u56fd\u53cd\u5236\u88c1\u6cd5\u5f8b\u4f53\u7cfb\u4e13\u9898\u7ad9"}</p>
           <p class="detail-en hero-detail-en">China Counter-Sanctions Legal System</p>
           <h1>${"\u9762\u5411\u5f8b\u5e08\u3001\u5408\u89c4\u4e0e\u6cd5\u52a1\u7684\u6cd5\u5f8b\u6587\u672c\u5e93"}</h1>
+          ${renderUsageNotice("site-usage-note-home")}
           <p class="detail-en hero-detail-en">A bilingual legal text archive for lawyers, compliance teams, and in-house counsel</p>
           <p class="hero-summary">
             ${"\u4ee5\u4e2d\u56fd\u53cd\u5236\u88c1\u3001\u53cd\u57df\u5916\u4e0d\u5f53\u63aa\u65bd\u548c\u53cd\u57df\u5916\u7ba1\u8f96\u6cd5\u5f8b\u4e3a\u4e3b\u8f74\uff0c\u63d0\u4f9b\u4e2d\u82f1\u5bf9\u7167\u8282\u5f55\u3001\u6743\u5a01\u6765\u6e90\u94fe\u63a5\uff0c\u5e76\u4ee5\u6b27\u76df\u3001\u52a0\u62ff\u5927\u3001\u82f1\u56fd\u7b49\u6cd5\u57df\u4f5c\u4e3a\u6bd4\u8f83\u8865\u5145\u3002"}
