@@ -346,9 +346,21 @@ test("site includes identified Chinese court practice on anti-foreign sanctions 
     "njmc-2026-first-afsl-top-ten-case",
     "legal-daily-2026-maritime-long-arm",
     "spc-ipc-2026-reform-afsl-case",
+    "spc-2026-maritime-typical-afsl-bill-of-lading",
   ].forEach((id) => {
     assert.equal(articleIds.has(id), true, `${id} should be included`);
   });
+});
+
+test("latest Chinese court practice includes the SPC maritime sanctions judgment", () => {
+  const record = articles.find((article) => article.id === "spc-2026-maritime-typical-afsl-bill-of-lading");
+
+  assert.ok(record, "SPC maritime sanctions judgment should be included");
+  assert.equal(record.publisher, "最高人民法院");
+  assert.equal(record.forum, "上海海事法院 / 最高人民法院典型案例");
+  assert.equal(record.citation.includes("（2023）沪72民初1936号"), true);
+  assert.equal(record.abstract.includes("首个以生效判决方式明确《反外国制裁法》强制适用效力"), true);
+  assert.equal((record.sourceKinds ?? []).includes("official-court"), true);
 });
 
 test("site includes a substantial set of Chinese scholar and lawyer commentary on the litigation path", () => {
@@ -396,10 +408,12 @@ test("index metadata and app shell do not contain visible encoding corruption", 
 test("app shell bumps cache-busting version for the latest data update", () => {
   const indexSource = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
   const mainSource = fs.readFileSync(new URL("../src/main.js", import.meta.url), "utf8");
+  const articlesSource = fs.readFileSync(new URL("../src/data/articles.js", import.meta.url), "utf8");
 
-  assert.equal(indexSource.includes("./src/main.js?v=20260603a"), true);
-  assert.equal(mainSource.includes("./app.js?v=20260603a"), true);
-  assert.equal(mainSource.includes('source.replaceAll("20260525b", "20260603a")'), true);
+  assert.equal(indexSource.includes("./src/main.js?v=20260710a"), true);
+  assert.equal(mainSource.includes("./app.js?v=20260710a"), true);
+  assert.equal(mainSource.includes('source.replaceAll("20260603a", "20260710a")'), true);
+  assert.equal(articlesSource.includes("./articles.part12.js?v=20260710a"), true);
 });
 
 test("official positions archive includes core bilingual records from MFA, UN mission, and MOFCOM", () => {

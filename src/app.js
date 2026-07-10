@@ -297,10 +297,10 @@ const chinaCaseGroups = [
   },
   {
     title: "上海海事法院外国制裁导致拒签提单案",
-    subtitle: "公开报道未披露案号；海事强制令程序",
+    subtitle: "香港某公司等诉新加坡某船务公司、某船务（中国）公司海上货物运输合同纠纷案；（2023）沪72民初1936号",
     description:
-      "外国承运人因外国制裁拒签提单，法院据报道作出海事强制令，是海事司法反制域外限制措施的实践材料。",
-    articleIds: ["cn-shanghai-maritime-bill-of-lading-sanctions"],
+      "外国承运人因外国制裁拒签提单并退运货物；最高法典型案例披露，一审生效判决直接适用《反外国制裁法》第12条，确认外国制裁不得作为拒绝履约的抗辩事由。",
+    articleIds: ["cn-shanghai-maritime-bill-of-lading-sanctions", "spc-2026-maritime-typical-afsl-bill-of-lading"],
   },
 ];
 

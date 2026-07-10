@@ -74,4 +74,22 @@ export const articlesPart12 = [
     accessMode: "summary",
     sourceUrl: "https://paper.cnstock.com/html/2026-06/02/content_2225999.htm",
   },
+  {
+    id: "spc-2026-maritime-typical-afsl-bill-of-lading",
+    title: "香港某公司等诉新加坡某船务公司、某船务（中国）公司海上货物运输合同纠纷案",
+    authors: ["最高人民法院"],
+    publisher: "最高人民法院",
+    year: 2026,
+    language: "zh",
+    sourceKinds: ["case", "official-court", "maritime"],
+    jurisdictions: ["China"],
+    relatedLawIds: ["cn-afsl-2021", "cn-afsl-implementation-2025", "cn-blocking-rules-2021", "cn-extraterritorial-jurisdiction-2026"],
+    practiceTrack: "blocking-conflicts",
+    forum: "上海海事法院 / 最高人民法院典型案例",
+    citation: "（2023）沪72民初1936号；一审生效判决；2025年全国海事审判典型案例案例六",
+    abstract:
+      "最高人民法院2026年6月发布的海事审判典型案例披露，上海海事法院认定承运人以托运人被外国列入制裁清单为由拒签提单并退运货物构成根本违约，《反外国制裁法》第十二条作为强制性规定应直接适用；法院判令承运人赔偿货款损失及利息，并驳回其反诉。该案是公开材料中首个以生效判决方式明确《反外国制裁法》强制适用效力的中国法院案例。",
+    accessMode: "summary",
+    sourceUrl: "https://www.court.gov.cn/zixun/xiangqing/503641.html",
+  },
 ];
