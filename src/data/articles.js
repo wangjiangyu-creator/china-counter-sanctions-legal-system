@@ -9,7 +9,7 @@ import { articlesPart8 } from "./articles.part8.js?v=20260525a";
 import { articlesPart9 } from "./articles.part9.js?v=20260525a";
 import { articlesPart10 } from "./articles.part10.js?v=20260525a";
 import { articlesPart11 } from "./articles.part11.js?v=20260525a";
-import { articlesPart12 } from "./articles.part12.js?v=20260710a";
+import { articlesPart12 } from "./articles.part12.js?v=20260710b";
 
 export const articles = [
   ...articlesPart1,

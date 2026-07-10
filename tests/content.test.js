@@ -212,6 +212,40 @@ test("foreign trade law sources point to the updated official Chinese and Englis
   assert.equal(sourceUrls.has("http://en.moj.gov.cn/2023-12/15/c_948360.htm"), true);
 });
 
+test("China law records include PDF or database fallback links for fragile sources", () => {
+  const requiredFallbacks = new Map([
+    ["cn-foreign-relations-law-2023", ["2023-Foreign-Relations-Law_Gazette.pdf"]],
+    ["cn-afsl-2021", ["2021-Anti%E2%80%93Foreign-Sanctions-Law_Gazette.pdf", "flk.npc.gov.cn"]],
+    ["cn-afsl-implementation-2025", ["LawID=1763&type=pdf"]],
+    ["cn-extraterritorial-jurisdiction-2026", ["LawID=1813&type=pdf"]],
+    ["cn-export-control-law-2020", ["2020-Export-Control-Law_Gazette.pdf"]],
+    ["cn-data-security-law-2021", ["2021-Data-Security-Law_Gazette.pdf"]],
+    ["cn-national-security-law-2015", ["2015-National-Security-Law_Gazette.pdf"]],
+    ["cn-cybersecurity-law-2016", ["cac.gov.cn/2025-12/29", "2025-Cybersecurity-Law-Amendment_Gazette.pdf"]],
+    ["cn-foreign-trade-law-2025", ["npcobserver.com/legislation/foreign-trade-law", "2025-Foreign-Trade-Law-Revision_Gazette.pdf"]],
+    ["cn-foreign-investment-law-2019", ["2019-Foreign-Investment-Law_Gazette.pdf"]],
+    ["cn-dual-use-export-control-regulation-2024", ["LawID=1735&type=pdf"]],
+    ["cn-foreign-state-immunity-law-2023", ["mfa.gov.cn", "2023-Foreign-State-Immunity-Law_Gazette.pdf"]],
+    ["cn-supply-chain-security-regulation-2026", ["LawID=1812&type=pdf"]],
+    ["cn-pipl-2021", ["2021-Personal-Information-Protection-Law_Gazette.pdf"]],
+    ["cn-international-criminal-judicial-assistance-law-2018", ["upload.wikimedia.org", "flk.npc.gov.cn"]],
+    ["cn-outbound-investment-regulation-2026", ["LawID=1818&type=pdf"]],
+  ]);
+
+  requiredFallbacks.forEach((urlFragments, id) => {
+    const record = laws.find((law) => law.id === id);
+    assert.ok(record, `${id} should exist`);
+
+    urlFragments.forEach((fragment) => {
+      assert.equal(
+        record.sources.some((source) => source.url.includes(fragment)),
+        true,
+        `${id} should include ${fragment}`,
+      );
+    });
+  });
+});
+
 test("core China counter-sanctions records include richer bilingual sectioning", () => {
   const coreIds = [
     "cn-afsl-2021",
@@ -410,10 +444,10 @@ test("app shell bumps cache-busting version for the latest data update", () => {
   const mainSource = fs.readFileSync(new URL("../src/main.js", import.meta.url), "utf8");
   const articlesSource = fs.readFileSync(new URL("../src/data/articles.js", import.meta.url), "utf8");
 
-  assert.equal(indexSource.includes("./src/main.js?v=20260710a"), true);
-  assert.equal(mainSource.includes("./app.js?v=20260710a"), true);
-  assert.equal(mainSource.includes('source.replaceAll("20260603a", "20260710a")'), true);
-  assert.equal(articlesSource.includes("./articles.part12.js?v=20260710a"), true);
+  assert.equal(indexSource.includes("./src/main.js?v=20260710b"), true);
+  assert.equal(mainSource.includes("./app.js?v=20260710b"), true);
+  assert.equal(mainSource.includes('source.replaceAll("20260710a", "20260710b")'), true);
+  assert.equal(articlesSource.includes("./articles.part12.js?v=20260710b"), true);
 });
 
 test("official positions archive includes core bilingual records from MFA, UN mission, and MOFCOM", () => {
